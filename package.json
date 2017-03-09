@@ -16,7 +16,8 @@
   "author": "Foster Made",
   "license": "MIT",
   "scripts": {
-    "watch": "webpack-dev-server"
+    "watch": "webpack-dev-server",
+    "dist": "webpack -p"
   },
   "dependencies": {
     "modernizr": "^3.3.1",

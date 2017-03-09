@@ -3,7 +3,6 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    // context: __dirname + '../../../assets/js/',
     entry: [
         './assets/js/lib/modernizr-custom.js', 
         './assets/js/main.js',
@@ -11,6 +10,7 @@ module.exports = {
     output: {
         filename: 'main.bundle.js',
         publicPath: '/assets/dev/',
+        path: __dirname + '/assets/dist',
     },
     plugins: [
         new webpack.ProvidePlugin({
@@ -34,7 +34,6 @@ module.exports = {
                 test: /\.scss$/, 
                 loader: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    // loader: "css-loader!sass-loader",
                     use: ['css-loader', 'sass-loader']
                 }),
             }
