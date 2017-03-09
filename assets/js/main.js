@@ -1,14 +1,11 @@
 import { buildExternal } from './ui/externalLinks';
 import { addPlaceholders } from './ui/placeholders';
 import Modernizr from 'modernizr';
+require('../scss/main.scss');
 
 if (typeof console === "undefined") {
     console = { log: function() { } };
 }
-
-// modernizr.build(modernizrConfig, function (result) {
-//   console.log(result); // the build
-// });
 
 buildExternal();
 addPlaceholders();
