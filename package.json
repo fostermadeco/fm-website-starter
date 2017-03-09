@@ -1,0 +1,21 @@
+{
+  "name": "test-site",
+  "version": "1.0.0",
+  "description": "Example site for fm-site-build implementation.",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "modernizr-loader": "^1.0.1",
+    "path": "^0.12.7",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "author": "Foster Made",
+  "license": "MIT",
+  "scripts": {
+    "watch": "webpack-dev-server"
+  },
+  "dependencies": {
+    "modernizr": "^3.3.1",
+    "parsleyjs": "^2.7.0"
+  }
+}
