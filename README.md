@@ -13,6 +13,8 @@ npm install
 npm run watch
 ```
 
+View the site at: [http://localhost:8080/](http://localhost:8080/)
+
 **Build production files:**
 ```
 npm run dist
