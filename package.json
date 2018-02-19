@@ -1,8 +1,7 @@
 {
     "name": "test-site",
     "version": "1.0.0",
-    "description": "Example site for fm-site-build implementation.",
-    "main": "gulpfile.js",
+    "description": "Example project of front end assets.",
     "devDependencies": {
         "css-loader": "^0.28.9",
         "extract-text-webpack-plugin": "^3.0.2",
