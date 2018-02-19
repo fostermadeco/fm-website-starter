@@ -13,7 +13,7 @@
         <!-- dev specific -->
         <link rel="stylesheet" href="/assets/dev/main.css">
         <!-- dist specific -->
-        <!-- <noscript><link rel="stylesheet" href="/assets/dev/main-min-d4b027baf4.css"></noscript> -->
+        <!-- <link rel="stylesheet" href="/assets/dev/main-min-d4b027baf4.css">-->
         <!--[if lte IE 9]><link rel="stylesheet" href="/assets/dev/main-min-d4b027baf4.css"><![endif]-->
     </head>
 
@@ -45,21 +45,12 @@
             <div class="wrapper cleared">
             </div><!-- /.wrapper -->
         </footer>
-        
+
         <!-- dev specific -->
         <script src="/assets/dev/main.bundle.js"></script>
         <!-- dist specific -->
         <!--
             <script src="/assets/dist/main-min-b566517737.js"></script>
-            <script>
-                var cb = function() {
-                    var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '/assets/dist/main-min-d4b027baf4.css';
-                    var h = document.getElementsByTagName('script')[0]; h.parentNode.insertBefore(l, h);
-                };
-                var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
-                if (raf) raf(cb);
-                else window.addEventListener('load', cb);
-            </script>
         -->
 
     </body>
