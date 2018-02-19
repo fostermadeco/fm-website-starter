@@ -1,11 +1,11 @@
 {
-    "minify": false,
-    "options": [
-        "html5printshiv",
-        "html5shiv",
-        "setClasses"
-    ],
-    "feature-detects": [
-        "test/touchevents"
-    ]
+  "minify": false,
+  "options": [
+    "html5printshiv",
+    "html5shiv",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/svg"
+  ]
 }
