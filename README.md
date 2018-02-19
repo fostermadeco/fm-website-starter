@@ -1,8 +1,16 @@
-# Foster Made Webpack Starter
+# Foster Made Front End Starter Project
 
-Example of how webpack 2 can be used to build site assets WIP. Right now includes global jQuery reference, Modernizr, js bundle (main.bundle.js), loading of scss files in separate bundle (main.css)
+Example project of front end assets.
 
-### Usage
+## What is included
+
+* Webpack 3 # TODO update to webpack 4
+* Global jQuery reference
+* Modernizr
+* JS bundle file (main.bundle.js)
+* Loading of scss files in separate bundle (main.css)
+
+## Webpack Usage
 **Install Dependencies**
 ```
 npm install
@@ -10,7 +18,7 @@ npm install
 
 **Run Development Task**
 ```
-npm run watch
+npm run start
 ```
 
 View the site at: [http://localhost:8080/](http://localhost:8080/)
@@ -20,25 +28,26 @@ View the site at: [http://localhost:8080/](http://localhost:8080/)
 npm run dist
 ```
 
-
-### Assets
+## Assets
 Add an asset by installing the npm package:
 ```
 npm install --save jquery
 npm install --save parsleyjs
 ```
 
-### Sass
-Styles are loaded through the js into their own bundle: assets/dev/main.css.
-See require statement in main.js. 
+## Sass
+Styles are loaded through the js into their own bundle file: `./assets/dev/main.css`.
+See require statement in main.js.
 
-Imports can either be aliased in the webpack.config.js or by the path to the package folder in the node_modules folder:
+Imports can either be aliased in the `webpack.config.js` or by the path to the package folder in the node_modules folder:
 ```
 @import '~normalize.css/normalize';
 ```
 
-### Modernizr
-For the css classes, Modernizr is loaded in the webpack entry array. The file was just downloaded from Modernizr.com.
+## Modernizr
+### Modernizr in CSS
+The html Modernizr classes are added via Webpack loading the Modernizr script into the js bundle from `./assets/js/lib/modernizr-custom.js`. The file was downloaded from [modernizr.com](https://modernizr.com/download?svg-dontmin-printshiv-setclasses-shiv). The SVG feature test is used as an example.
 
-On the js side, modernizr-loader is used to load it into a module for js use. This uses the Modernizr config that is located in assets/js/lib/.modernizrrc 
+### Modernizr in JS
+On the js side, the `modernizr-loader` package is used to load it into a module for js use. This uses the Modernizr config that is located in `./assets/js/lib/.modernizrrc`.
 
