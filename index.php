@@ -1,3 +1,7 @@
+<?php
+  require_once 'vendor/autoload.php';
+  require_once 'mix.php';
+?>
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -10,11 +14,7 @@
         <link rel="shortcut icon" href="/favicon.ico">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         <style>body{visibility:hidden;}</style>
-        <!-- dev specific -->
-        <link rel="stylesheet" href="/assets/dev/main.css">
-        <!-- dist specific -->
-        <!-- <link rel="stylesheet" href="/assets/dev/main-min-d4b027baf4.css">-->
-        <!--[if lte IE 9]><link rel="stylesheet" href="/assets/dev/main-min-d4b027baf4.css"><![endif]-->
+        <link rel="stylesheet" href="<?php echo mix('assets/main.css'); ?>" />
     </head>
 
     <body>
@@ -46,10 +46,7 @@
             </div><!-- /.wrapper -->
         </footer>
 
-        <!-- dev specific -->
-        <script src="/assets/dev/main.bundle.js"></script>
-        <!-- dist specific -->
-        <!-- <script src="/assets/dist/main-min-b566517737.js"></script> -->
+        <script src="<?php echo mix('assets/main.js'); ?>"></script>
 
     </body>
 </html>
