@@ -2,9 +2,9 @@ const mix = require('laravel-mix');
 mix.setPublicPath('./');
 
 mix.js([
-    'assets/js/main.js',
     'assets/js/lib/modernizr-custom.js',
-], 'public/assets');
+    'assets/js/main.js',
+], 'public/assets/main.js');
 
 mix.sass('assets/scss/main.scss', 'public/assets');
 
@@ -15,6 +15,10 @@ mix.autoload({
 mix.webpackConfig({
     module: {
         rules: [
+            {
+                test: /\.modernizrrc.js$/,
+                loader: "modernizr-loader"
+            },
             {
                 test: /\.modernizrrc(\.json)?$/,
                 loader: "json-loader"
