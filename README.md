@@ -1,31 +1,44 @@
 # Foster Made Front End Starter Project
 
-Example project of front end assets.
+Example project of front end assets with Laravel Mix.
 
 ## What is included
 
-* Webpack 3 # TODO update to webpack 4
+* Larvel mix 2 - wrapper around webpack
 * Global jQuery reference
 * Modernizr
-* JS bundle file (main.bundle.js)
+* JS bundle file (main.js)
 * Loading of scss files in separate bundle (main.css)
 
-## Webpack Usage
+## Installation & Setup
 **Install Dependencies**
 ```
+composer install
 npm install
 ```
 
-**Run Development Task**
+## Tasks
+
+**Development files**
+
+Create static files:
 ```
-npm run start
+npm run dev
+```
+**Watch files**
+
+User browsersync to watch files for changes.
+```
+npm run watch
 ```
 
-View the site at: [http://localhost:8080/](http://localhost:8080/)
+View the site that reloads with changes: [http://localhost:3000/](http://localhost:3000/)
+Or the proxied version: [http://fm-example.test:3000/](http://fm-example.test:3000/)
+View browsersync at: [http://localhost:3001/](http://localhost:3001/)
 
 **Build production files:**
 ```
-npm run dist
+npm run production
 ```
 
 ## Assets
