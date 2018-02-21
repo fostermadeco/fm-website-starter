@@ -7,9 +7,6 @@ if (typeof console === "undefined") {
     console = { log: function() { } };
 }
 
-console.log(Modernizr);
-
-
 buildExternal();
 addPlaceholders();
 

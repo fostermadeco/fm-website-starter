@@ -1,9 +1,13 @@
 /* Google Fonts */
 // @import url(https://fonts.googleapis.com/css?family=XXXXXXXXXXXXXXX);
 
+// aliased in webpack config
 @import '~normalize';
 
-/* General */
+// referenced via package folder ./node_modules/normalize.css
+// @import '~normalize.css';
+
+// import from local file ./assets/scss/_reset.scss
 @import 'reset';
 
 /* Mixins */

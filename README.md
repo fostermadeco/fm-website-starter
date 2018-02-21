@@ -36,12 +36,11 @@ npm install --save parsleyjs
 ```
 
 ## Sass
-Styles are loaded through the js into their own bundle file: `./assets/dev/main.css`.
-See require statement in main.js.
+Styles are loaded through the js into their own bundle file: `./public/assets/main.css`.
 
-Imports can either be aliased in the `webpack.config.js` or by the path to the package folder in the node_modules folder:
+Imports can be referenced by the path to the package folder in the node_modules folder:
 ```
-@import '~normalize.css/normalize';
+@import '~normalize.css';
 ```
 
 ## Modernizr
