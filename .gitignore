@@ -27,6 +27,12 @@ yarn-error.log*
 dist/
 build/
 
+# Hot reloading
+hot
+
+# Versioning
+mix-manifest.json
+
 
 ### SublimeText ###
 # cache files for sublime text
