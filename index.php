@@ -37,7 +37,10 @@
 
                 <h1>Hello world! This is the Boilerplate Build!</h1>
                 <h2><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Welcome</h2>
-
+                <form action="">
+                    <input type="text" name="first_name" required>
+                    <button>Submit</button>
+                </form>
             </div><!-- /.wrapper -->
         </div><!-- /.content -->
 
