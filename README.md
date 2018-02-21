@@ -40,6 +40,7 @@ View browsersync at: [http://localhost:3001/](http://localhost:3001/)
 ```
 npm run production
 ```
+Creates minified version of files available in template.
 
 ## Assets
 Add an asset by installing the npm package:
