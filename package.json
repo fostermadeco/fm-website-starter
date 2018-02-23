@@ -3,14 +3,9 @@
     "version": "1.0.0",
     "description": "Example project of front end assets.",
     "devDependencies": {
-        "css-loader": "^0.28.9",
-        "extract-text-webpack-plugin": "^3.0.2",
-        "modernizr-loader": "^1.0.1",
-        "node-sass": "^4.7.2",
-        "path": "^0.12.7",
-        "sass-loader": "^6.0.6",
-        "style-loader": "^0.20.2",
-        "webpack": "^3.11.0",
+        "eslint": "^4.18.1",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.9.0",
         "webpack-dev-server": "^2.11.1"
     },
     "author": "Foster Made",
@@ -20,6 +15,14 @@
         "dist": "webpack -p"
     },
     "dependencies": {
+        "extract-text-webpack-plugin": "^3.0.2",
+        "modernizr-loader": "^1.0.1",
+        "node-sass": "^4.7.2",
+        "path": "^0.12.7",
+        "sass-loader": "^6.0.6",
+        "style-loader": "^0.20.2",
+        "webpack": "^3.11.0",
+        "css-loader": "^0.28.9",
         "modernizr": "^3.3.1",
         "normalize.css": "^5.0.0",
         "parsleyjs": "^2.7.0"
