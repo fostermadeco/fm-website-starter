@@ -56,9 +56,9 @@ The html Modernizr classes are added via Webpack loading the Modernizr script in
 On the js side, the `modernizr-loader` package is used to load it into a module for js use. This uses the Modernizr config that is located in `./assets/js/lib/.modernizrrc`. The `Modernizr` object holds properties for each test. Test for truthiness:
 
 ```
-// Modernizer object
-{svg: true}
-// Testing for truthiness
+// Modernizer object example:
+// {svg: true}
+// Testing for feature support
 if (!Modernizr.svg) {
     console.log('This browser does not support svg!');
 }
