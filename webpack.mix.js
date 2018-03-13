@@ -1,7 +1,9 @@
 const mix = require('laravel-mix');
+
 mix.setPublicPath('./');
 
-mix.js([
+// transpiles to es2015 https://babeljs.io/learn-es2015/
+mix.babel([
     'assets/js/lib/modernizr-custom.js',
     'assets/js/main.js',
 ], 'public/assets/main.js');
@@ -11,6 +13,9 @@ mix.sass('assets/scss/main.scss', 'public/assets');
 mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
 });
+
+mix.copy('assets/images', 'public/images');
+mix.copy('assets/fonts', 'public/fonts');
 
 mix.webpackConfig({
     module: {
