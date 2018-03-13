@@ -1,48 +1,32 @@
 # Foster Made Front End Starter Project
 
-Example project of front end assets with [Laravel Mix](https://laravel.com/docs/5.6/mix).
+Example project of front end assets using Laravel Mix.
 
 ## What is included
 
-* Larvel Mix 2 - wrapper around webpack
+* [Laravel Mix](https://github.com/JeffreyWay/laravel-mix) (which uses Webpack)
 * Global jQuery reference
-* Modernizr
+* Includes Modernizr
 * JS bundle file (main.js)
 * Loading of scss files in separate bundle (main.css)
 
-## Installation & Setup
+## Webpack Usage
 **Install Dependencies**
 ```
-composer install
 npm install
 ```
 
-## Tasks
-
-**Development files**
-
-Create static files:
+**Run Development Task**
 ```
-npm run dev
-```
-**Watch files**
-
-Use [Browsersync](https://browsersync.io/) to watch files for changes.
-```
-npm run watch
+npm run start
 ```
 
-View the site that reloads with changes: [http://localhost:3000/](http://localhost:3000/)
-Or the proxied version: [http://fm-example.test:3000/](http://fm-example.test:3000/)
-View browsersync at: [http://localhost:3001/](http://localhost:3001/)
-
-TODO: hot reloading testing
+View the site at: [http://localhost:8080/](http://localhost:8080/)
 
 **Build production files:**
 ```
-npm run production
+npm run dist
 ```
-Creates minified version of files available in template. See files referenced on proxy url [http://fm-example.test/](http://fm-example.test/).
 
 ## Assets
 Add an asset by installing the npm package:
@@ -52,12 +36,11 @@ npm install --save parsleyjs
 ```
 
 ## Sass
-Styles are loaded through the js into their own bundle file: `./assets/dev/main.css`.
-See require statement in main.js.
+Styles are loaded through the js into their own bundle file: `./public/assets/main.css`.
 
-Imports can either be aliased in the `webpack.config.js` or by the path to the package folder in the node_modules folder:
+Imports can be referenced by the path to the package folder in the node_modules folder:
 ```
-@import '~normalize.css/normalize';
+@import '~normalize.css';
 ```
 
 ## Modernizr
@@ -73,9 +56,9 @@ The html Modernizr classes are added via Webpack loading the Modernizr script in
 On the js side, the `modernizr-loader` package is used to load it into a module for js use. This uses the Modernizr config that is located in `./assets/js/lib/.modernizrrc`. The `Modernizr` object holds properties for each test. Test for truthiness:
 
 ```
-// Modernizer object
-{svg: true}
-// Testing for truthiness
+// Modernizer object example:
+// {svg: true}
+// Testing for feature support
 if (!Modernizr.svg) {
     console.log('This browser does not support svg!');
 }
