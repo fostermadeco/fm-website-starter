@@ -1,6 +1,6 @@
 # Foster Made Front End Starter Project
 
-Example project of front end assets using Laravel Mix.
+Example project of front end assets using Vagrant and Laravel Mix.
 
 ## What is included
 
@@ -10,20 +10,45 @@ Example project of front end assets using Laravel Mix.
 * JS bundle file (main.js)
 * Loading of scss files in separate bundle (main.css)
 
-## Webpack Usage
-**Install Dependencies**
+## Things to note
+
+* `resources` contains all source files, these should be modified.
+* `public/assets` should be all compiled files, these files are created automatically and should not be edited.
+
+## Installation
+
+Copy files from this repo into project:
+* `webpack.mix.js`
+* `composer.json`
+* `package.json` (if it doesn't already exist)
+
+Depending how your project assets are setup, you might not need to copy the `resources` and `public` folders. These are examples of how your assets might be setup.
+
+Once you have copied all the files into your project, install the dependencies:
 ```
+vagrant ssh
+cd /var/www/example-site.dev
+composer install
 npm install
 ```
 
-**Run Development Task**
+NOTE: All tasks and commands should be run on the box.
+
+## Task Usage
+**Development Task**
+Creates static files in `public/assets/`:
 ```
 npm run start
 ```
+**Watch Task**
+Usses BrowserSync to refresh assets and reload browser:
+```
+npm run watch
+```
 
-View the site at: [http://localhost:8080/](http://localhost:8080/)
+View the site at [http://localhost:3000/](http://localhost:3000/) or the proxy as set in `webpack.mix.js`, e.g. [http://fm-example.test:3000](http://fm-example.test:3000)
 
-**Build production files:**
+**Production Task:**
 ```
 npm run dist
 ```
@@ -31,9 +56,18 @@ npm run dist
 ## Assets
 Add an asset by installing the npm package:
 ```
-npm install --save jquery
 npm install --save parsleyjs
+npm install --save handlebars
 ```
+__Note if using npm version 5+ the `--save` flag is not necessary.__
+
+This adds the package the the package.json file. The dependency then needs to be added to your JS file. Depending on the package, it might need to be an import statement or a require:
+
+```
+import parsleyjs from 'parsleyjs';
+const Handlebars = require('handlebars');
+```
+Read more about ES6 modules in the [FM JS styleguide]().
 
 ## Sass
 Styles are loaded through the js into their own bundle file: `./public/assets/main.css`.
