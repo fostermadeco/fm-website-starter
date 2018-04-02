@@ -96,9 +96,7 @@ Tests can be added two ways:
 
 On the box:
 ```
-# globally install CLI - just once
-sudo npm i -g modernizr
-
+# modernizr package is in package.json
 # add test to `resources/js/lib/modernizrrc.json`
 npm run modernizr
 ```
