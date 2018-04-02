@@ -10455,791 +10455,203 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
   return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
 };
 
-/*!
- * modernizr v3.5.0
- * Build https://modernizr.com/download?-svg-printshiv-setclasses-dontmin
- *
- * Copyright (c)
- *  Faruk Ates
- *  Paul Irish
- *  Alex Sexton
- *  Ryan Seddon
- *  Patrick Kettner
- *  Stu Cox
- *  Richard Herrera
-
- * MIT License
- */
-
-/*
- * Modernizr tests which native CSS3 and HTML5 features are available in the
- * current UA and makes the results available to you in two ways: as properties on
- * a global `Modernizr` object, and as classes on the `<html>` element. This
- * information allows you to progressively enhance your pages with a granular level
- * of control over the experience.
-*/
-
-;(function (window, document, undefined) {
-  var classes = [];
-
-  var tests = [];
-
-  /**
-   *
-   * ModernizrProto is the constructor for Modernizr
-   *
-   * @class
-   * @access public
-   */
-
-  var ModernizrProto = {
-    // The current version, dummy
-    _version: '3.5.0',
-
-    // Any settings that don't work as separate modules
-    // can go in here as configuration.
-    _config: {
-      'classPrefix': '',
-      'enableClasses': true,
-      'enableJSClass': true,
-      'usePrefixes': true
-    },
-
-    // Queue of tests
-    _q: [],
-
-    // Stub these for people who are listening
-    on: function on(test, cb) {
-      // I don't really think people should do this, but we can
-      // safe guard it a bit.
-      // -- NOTE:: this gets WAY overridden in src/addTest for actual async tests.
-      // This is in case people listen to synchronous tests. I would leave it out,
-      // but the code to *disallow* sync tests in the real version of this
-      // function is actually larger than this.
-      var self = this;
-      setTimeout(function () {
-        cb(self[test]);
+/*! modernizr 3.5.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-flexbox-svg-printshiv-setclasses !*/
+!function (e, t, n) {
+  function r(e, t) {
+    return (typeof e === "undefined" ? "undefined" : _typeof(e)) === t;
+  }function o() {
+    var e, t, n, o, i, a, s;for (var l in E) {
+      if (E.hasOwnProperty(l)) {
+        if (e = [], t = E[l], t.name && (e.push(t.name.toLowerCase()), t.options && t.options.aliases && t.options.aliases.length)) for (n = 0; n < t.options.aliases.length; n++) {
+          e.push(t.options.aliases[n].toLowerCase());
+        }for (o = r(t.fn, "function") ? t.fn() : t.fn, i = 0; i < e.length; i++) {
+          a = e[i], s = a.split("."), 1 === s.length ? Modernizr[s[0]] = o : (!Modernizr[s[0]] || Modernizr[s[0]] instanceof Boolean || (Modernizr[s[0]] = new Boolean(Modernizr[s[0]])), Modernizr[s[0]][s[1]] = o), C.push((o ? "" : "no-") + s.join("-"));
+        }
+      }
+    }
+  }function i(e) {
+    var t = b.className,
+        n = Modernizr._config.classPrefix || "";if (x && (t = t.baseVal), Modernizr._config.enableJSClass) {
+      var r = new RegExp("(^|\\s)" + n + "no-js(\\s|$)");t = t.replace(r, "$1" + n + "js$2");
+    }Modernizr._config.enableClasses && (t += " " + n + e.join(" " + n), x ? b.className.baseVal = t : b.className = t);
+  }function a(e, t) {
+    return !!~("" + e).indexOf(t);
+  }function s() {
+    return "function" != typeof t.createElement ? t.createElement(arguments[0]) : x ? t.createElementNS.call(t, "http://www.w3.org/2000/svg", arguments[0]) : t.createElement.apply(t, arguments);
+  }function l() {
+    var e = t.body;return e || (e = s(x ? "svg" : "body"), e.fake = !0), e;
+  }function u(e, n, r, o) {
+    var i,
+        a,
+        u,
+        c,
+        f = "modernizr",
+        d = s("div"),
+        p = l();if (parseInt(r, 10)) for (; r--;) {
+      u = s("div"), u.id = o ? o[r] : f + (r + 1), d.appendChild(u);
+    }return i = s("style"), i.type = "text/css", i.id = "s" + f, (p.fake ? p : d).appendChild(i), p.appendChild(d), i.styleSheet ? i.styleSheet.cssText = e : i.appendChild(t.createTextNode(e)), d.id = f, p.fake && (p.style.background = "", p.style.overflow = "hidden", c = b.style.overflow, b.style.overflow = "hidden", b.appendChild(p)), a = n(d, e), p.fake ? (p.parentNode.removeChild(p), b.style.overflow = c, b.offsetHeight) : d.parentNode.removeChild(d), !!a;
+  }function c(e) {
+    return e.replace(/([A-Z])/g, function (e, t) {
+      return "-" + t.toLowerCase();
+    }).replace(/^ms-/, "-ms-");
+  }function f(t, n, r) {
+    var o;if ("getComputedStyle" in e) {
+      o = getComputedStyle.call(e, t, n);var i = e.console;if (null !== o) r && (o = o.getPropertyValue(r));else if (i) {
+        var a = i.error ? "error" : "log";i[a].call(i, "getComputedStyle returning null, its possible modernizr test results are inaccurate");
+      }
+    } else o = !n && t.currentStyle && t.currentStyle[r];return o;
+  }function d(t, r) {
+    var o = t.length;if ("CSS" in e && "supports" in e.CSS) {
+      for (; o--;) {
+        if (e.CSS.supports(c(t[o]), r)) return !0;
+      }return !1;
+    }if ("CSSSupportsRule" in e) {
+      for (var i = []; o--;) {
+        i.push("(" + c(t[o]) + ":" + r + ")");
+      }return i = i.join(" or "), u("@supports (" + i + ") { #modernizr { position: absolute; } }", function (e) {
+        return "absolute" == f(e, null, "position");
+      });
+    }return n;
+  }function p(e) {
+    return e.replace(/([a-z])-([a-z])/g, function (e, t, n) {
+      return t + n.toUpperCase();
+    }).replace(/^-/, "");
+  }function m(e, t, o, i) {
+    function l() {
+      c && (delete _.style, delete _.modElem);
+    }if (i = r(i, "undefined") ? !1 : i, !r(o, "undefined")) {
+      var u = d(e, o);if (!r(u, "undefined")) return u;
+    }for (var c, f, m, h, v, g = ["modernizr", "tspan", "samp"]; !_.style && g.length;) {
+      c = !0, _.modElem = s(g.shift()), _.style = _.modElem.style;
+    }for (m = e.length, f = 0; m > f; f++) {
+      if (h = e[f], v = _.style[h], a(h, "-") && (h = p(h)), _.style[h] !== n) {
+        if (i || r(o, "undefined")) return l(), "pfx" == t ? h : !0;try {
+          _.style[h] = o;
+        } catch (y) {}if (_.style[h] != v) return l(), "pfx" == t ? h : !0;
+      }
+    }return l(), !1;
+  }function h(e, t) {
+    return function () {
+      return e.apply(t, arguments);
+    };
+  }function v(e, t, n) {
+    var o;for (var i in e) {
+      if (e[i] in t) return n === !1 ? e[i] : (o = t[e[i]], r(o, "function") ? h(o, n || t) : o);
+    }return !1;
+  }function g(e, t, n, o, i) {
+    var a = e.charAt(0).toUpperCase() + e.slice(1),
+        s = (e + " " + N.join(a + " ") + a).split(" ");return r(t, "string") || r(t, "undefined") ? m(s, t, o, i) : (s = (e + " " + j.join(a + " ") + a).split(" "), v(s, t, n));
+  }function y(e, t, r) {
+    return g(e, n, n, t, r);
+  }var E = [],
+      S = { _version: "3.5.0", _config: { classPrefix: "", enableClasses: !0, enableJSClass: !0, usePrefixes: !0 }, _q: [], on: function on(e, t) {
+      var n = this;setTimeout(function () {
+        t(n[e]);
       }, 0);
-    },
-
-    addTest: function addTest(name, fn, options) {
-      tests.push({ name: name, fn: fn, options: options });
-    },
-
-    addAsyncTest: function addAsyncTest(fn) {
-      tests.push({ name: null, fn: fn });
-    }
-  };
-
-  // Fake some of Object.create so we can force non test results to be non "own" properties.
-  var Modernizr = function Modernizr() {};
-  Modernizr.prototype = ModernizrProto;
-
-  // Leak modernizr globally when you `require` it rather than force it here.
-  // Overwrite name so constructor name is nicer :D
-  Modernizr = new Modernizr();
-
-  /*!
-  {
-    "name": "SVG",
-    "property": "svg",
-    "caniuse": "svg",
-    "tags": ["svg"],
-    "authors": ["Erik Dahlstrom"],
-    "polyfills": [
-      "svgweb",
-      "raphael",
-      "amplesdk",
-      "canvg",
-      "svg-boilerplate",
-      "sie",
-      "dojogfx",
-      "fabricjs"
-    ]
-  }
-  !*/
-  /* DOC
-  Detects support for SVG in `<embed>` or `<object>` elements.
-  */
-
-  Modernizr.addTest('svg', !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
-
-  /**
-   * is returns a boolean if the typeof an obj is exactly type.
-   *
-   * @access private
-   * @function is
-   * @param {*} obj - A thing we want to check the type of
-   * @param {string} type - A string to compare the typeof against
-   * @returns {boolean}
-   */
-
-  function is(obj, type) {
-    return (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === type;
-  }
-  ;
-
-  /**
-   * Run through all tests and detect their support in the current UA.
-   *
-   * @access private
-   */
-
-  function testRunner() {
-    var featureNames;
-    var feature;
-    var aliasIdx;
-    var result;
-    var nameIdx;
-    var featureName;
-    var featureNameSplit;
-
-    for (var featureIdx in tests) {
-      if (tests.hasOwnProperty(featureIdx)) {
-        featureNames = [];
-        feature = tests[featureIdx];
-        // run the test, throw the return value into the Modernizr,
-        // then based on that boolean, define an appropriate className
-        // and push it into an array of classes we'll join later.
-        //
-        // If there is no name, it's an 'async' test that is run,
-        // but not directly added to the object. That should
-        // be done with a post-run addTest call.
-        if (feature.name) {
-          featureNames.push(feature.name.toLowerCase());
-
-          if (feature.options && feature.options.aliases && feature.options.aliases.length) {
-            // Add all the aliases into the names list
-            for (aliasIdx = 0; aliasIdx < feature.options.aliases.length; aliasIdx++) {
-              featureNames.push(feature.options.aliases[aliasIdx].toLowerCase());
-            }
+    }, addTest: function addTest(e, t, n) {
+      E.push({ name: e, fn: t, options: n });
+    }, addAsyncTest: function addAsyncTest(e) {
+      E.push({ name: null, fn: e });
+    } },
+      Modernizr = function Modernizr() {};Modernizr.prototype = S, Modernizr = new Modernizr();var C = [],
+      b = t.documentElement,
+      x = "svg" === b.nodeName.toLowerCase();x || !function (e, t) {
+    function n(e, t) {
+      var n = e.createElement("p"),
+          r = e.getElementsByTagName("head")[0] || e.documentElement;return n.innerHTML = "x<style>" + t + "</style>", r.insertBefore(n.lastChild, r.firstChild);
+    }function r() {
+      var e = w.elements;return "string" == typeof e ? e.split(" ") : e;
+    }function o(e, t) {
+      var n = w.elements;"string" != typeof n && (n = n.join(" ")), "string" != typeof e && (e = e.join(" ")), w.elements = n + " " + e, u(t);
+    }function i(e) {
+      var t = x[e[C]];return t || (t = {}, b++, e[C] = b, x[b] = t), t;
+    }function a(e, n, r) {
+      if (n || (n = t), v) return n.createElement(e);r || (r = i(n));var o;return o = r.cache[e] ? r.cache[e].cloneNode() : S.test(e) ? (r.cache[e] = r.createElem(e)).cloneNode() : r.createElem(e), !o.canHaveChildren || E.test(e) || o.tagUrn ? o : r.frag.appendChild(o);
+    }function s(e, n) {
+      if (e || (e = t), v) return e.createDocumentFragment();n = n || i(e);for (var o = n.frag.cloneNode(), a = 0, s = r(), l = s.length; l > a; a++) {
+        o.createElement(s[a]);
+      }return o;
+    }function l(e, t) {
+      t.cache || (t.cache = {}, t.createElem = e.createElement, t.createFrag = e.createDocumentFragment, t.frag = t.createFrag()), e.createElement = function (n) {
+        return w.shivMethods ? a(n, e, t) : t.createElem(n);
+      }, e.createDocumentFragment = Function("h,f", "return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&(" + r().join().replace(/[\w\-:]+/g, function (e) {
+        return t.createElem(e), t.frag.createElement(e), 'c("' + e + '")';
+      }) + ");return n}")(w, t.frag);
+    }function u(e) {
+      e || (e = t);var r = i(e);return !w.shivCSS || h || r.hasCSS || (r.hasCSS = !!n(e, "article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")), v || l(e, r), e;
+    }function c(e) {
+      for (var t, n = e.getElementsByTagName("*"), o = n.length, i = RegExp("^(?:" + r().join("|") + ")$", "i"), a = []; o--;) {
+        t = n[o], i.test(t.nodeName) && a.push(t.applyElement(f(t)));
+      }return a;
+    }function f(e) {
+      for (var t, n = e.attributes, r = n.length, o = e.ownerDocument.createElement(T + ":" + e.nodeName); r--;) {
+        t = n[r], t.specified && o.setAttribute(t.nodeName, t.nodeValue);
+      }return o.style.cssText = e.style.cssText, o;
+    }function d(e) {
+      for (var t, n = e.split("{"), o = n.length, i = RegExp("(^|[\\s,>+~])(" + r().join("|") + ")(?=[[\\s,>+~#.:]|$)", "gi"), a = "$1" + T + "\\:$2"; o--;) {
+        t = n[o] = n[o].split("}"), t[t.length - 1] = t[t.length - 1].replace(i, a), n[o] = t.join("}");
+      }return n.join("{");
+    }function p(e) {
+      for (var t = e.length; t--;) {
+        e[t].removeNode();
+      }
+    }function m(e) {
+      function t() {
+        clearTimeout(a._removeSheetTimer), r && r.removeNode(!0), r = null;
+      }var r,
+          o,
+          a = i(e),
+          s = e.namespaces,
+          l = e.parentWindow;return !_ || e.printShived ? e : ("undefined" == typeof s[T] && s.add(T), l.attachEvent("onbeforeprint", function () {
+        t();for (var i, a, s, l = e.styleSheets, u = [], f = l.length, p = Array(f); f--;) {
+          p[f] = l[f];
+        }for (; s = p.pop();) {
+          if (!s.disabled && N.test(s.media)) {
+            try {
+              i = s.imports, a = i.length;
+            } catch (m) {
+              a = 0;
+            }for (f = 0; a > f; f++) {
+              p.push(i[f]);
+            }try {
+              u.push(s.cssText);
+            } catch (m) {}
           }
-        }
-
-        // Run the test, or use the raw value if it's not a function
-        result = is(feature.fn, 'function') ? feature.fn() : feature.fn;
-
-        // Set each of the names on the Modernizr object
-        for (nameIdx = 0; nameIdx < featureNames.length; nameIdx++) {
-          featureName = featureNames[nameIdx];
-          // Support dot properties as sub tests. We don't do checking to make sure
-          // that the implied parent tests have been added. You must call them in
-          // order (either in the test, or make the parent test a dependency).
-          //
-          // Cap it to TWO to make the logic simple and because who needs that kind of subtesting
-          // hashtag famous last words
-          featureNameSplit = featureName.split('.');
-
-          if (featureNameSplit.length === 1) {
-            Modernizr[featureNameSplit[0]] = result;
-          } else {
-            // cast to a Boolean, if not one already
-            if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
-              Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
-            }
-
-            Modernizr[featureNameSplit[0]][featureNameSplit[1]] = result;
-          }
-
-          classes.push((result ? '' : 'no-') + featureNameSplit.join('-'));
-        }
+        }u = d(u.reverse().join("")), o = c(e), r = n(e, u);
+      }), l.attachEvent("onafterprint", function () {
+        p(o), clearTimeout(a._removeSheetTimer), a._removeSheetTimer = setTimeout(t, 500);
+      }), e.printShived = !0, e);
+    }var h,
+        v,
+        g = "3.7.3",
+        y = e.html5 || {},
+        E = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,
+        S = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,
+        C = "_html5shiv",
+        b = 0,
+        x = {};!function () {
+      try {
+        var e = t.createElement("a");e.innerHTML = "<xyz></xyz>", h = "hidden" in e, v = 1 == e.childNodes.length || function () {
+          t.createElement("a");var e = t.createDocumentFragment();return "undefined" == typeof e.cloneNode || "undefined" == typeof e.createDocumentFragment || "undefined" == typeof e.createElement;
+        }();
+      } catch (n) {
+        h = !0, v = !0;
       }
-    }
-  }
-  ;
-
-  /**
-   * docElement is a convenience wrapper to grab the root element of the document
-   *
-   * @access private
-   * @returns {HTMLElement|SVGElement} The root element of the document
-   */
-
-  var docElement = document.documentElement;
-
-  /**
-   * A convenience helper to check if the document we are running in is an SVG document
-   *
-   * @access private
-   * @returns {boolean}
-   */
-
-  var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-
-  /**
-   * setClasses takes an array of class names and adds them to the root element
-   *
-   * @access private
-   * @function setClasses
-   * @param {string[]} classes - Array of class names
-   */
-
-  // Pass in an and array of class names, e.g.:
-  //  ['no-webp', 'borderradius', ...]
-  function setClasses(classes) {
-    var className = docElement.className;
-    var classPrefix = Modernizr._config.classPrefix || '';
-
-    if (isSVG) {
-      className = className.baseVal;
-    }
-
-    // Change `no-js` to `js` (independently of the `enableClasses` option)
-    // Handle classPrefix on this too
-    if (Modernizr._config.enableJSClass) {
-      var reJS = new RegExp('(^|\\s)' + classPrefix + 'no-js(\\s|$)');
-      className = className.replace(reJS, '$1' + classPrefix + 'js$2');
-    }
-
-    if (Modernizr._config.enableClasses) {
-      // Add the new classes
-      className += ' ' + classPrefix + classes.join(' ' + classPrefix);
-      if (isSVG) {
-        docElement.className.baseVal = className;
-      } else {
-        docElement.className = className;
-      }
-    }
-  }
-
-  ;
-
-  /**
-    * @optionName html5printshiv
-    * @optionProp html5printshiv
-    */
-
-  // Take the html5 variable out of the html5shiv scope so we can return it.
-  var html5;
-  if (!isSVG) {
-
-    /**
-     * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
-     */
-    ;(function (window, document) {
-      /** version */
-      var version = '3.7.3';
-
-      /** Preset options */
-      var options = window.html5 || {};
-
-      /** Used to skip problem elements */
-      var reSkip = /^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i;
-
-      /** Not all elements can be cloned in IE **/
-      var saveClones = /^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i;
-
-      /** Detect whether the browser supports default html5 styles */
-      var supportsHtml5Styles;
-
-      /** Name of the expando, to work with multiple documents or to re-shiv one document */
-      var expando = '_html5shiv';
-
-      /** The id for the the documents expando */
-      var expanID = 0;
-
-      /** Cached data for each document */
-      var expandoData = {};
-
-      /** Detect whether the browser supports unknown elements */
-      var supportsUnknownElements;
-
-      (function () {
-        try {
-          var a = document.createElement('a');
-          a.innerHTML = '<xyz></xyz>';
-          //if the hidden property is implemented we can assume, that the browser supports basic HTML5 Styles
-          supportsHtml5Styles = 'hidden' in a;
-
-          supportsUnknownElements = a.childNodes.length == 1 || function () {
-            // assign a false positive if unable to shiv
-            document.createElement('a');
-            var frag = document.createDocumentFragment();
-            return typeof frag.cloneNode == 'undefined' || typeof frag.createDocumentFragment == 'undefined' || typeof frag.createElement == 'undefined';
-          }();
-        } catch (e) {
-          // assign a false positive if detection fails => unable to shiv
-          supportsHtml5Styles = true;
-          supportsUnknownElements = true;
-        }
-      })();
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Creates a style sheet with the given CSS text and adds it to the document.
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @param {String} cssText The CSS text.
-       * @returns {StyleSheet} The style element.
-       */
-      function addStyleSheet(ownerDocument, cssText) {
-        var p = ownerDocument.createElement('p'),
-            parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
-
-        p.innerHTML = 'x<style>' + cssText + '</style>';
-        return parent.insertBefore(p.lastChild, parent.firstChild);
-      }
-
-      /**
-       * Returns the value of `html5.elements` as an array.
-       * @private
-       * @returns {Array} An array of shived element node names.
-       */
-      function getElements() {
-        var elements = html5.elements;
-        return typeof elements == 'string' ? elements.split(' ') : elements;
-      }
-
-      /**
-       * Extends the built-in list of html5 elements
-       * @memberOf html5
-       * @param {String|Array} newElements whitespace separated list or array of new element names to shiv
-       * @param {Document} ownerDocument The context document.
-       */
-      function addElements(newElements, ownerDocument) {
-        var elements = html5.elements;
-        if (typeof elements != 'string') {
-          elements = elements.join(' ');
-        }
-        if (typeof newElements != 'string') {
-          newElements = newElements.join(' ');
-        }
-        html5.elements = elements + ' ' + newElements;
-        shivDocument(ownerDocument);
-      }
-
-      /**
-       * Returns the data associated to the given document
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @returns {Object} An object of data.
-       */
-      function getExpandoData(ownerDocument) {
-        var data = expandoData[ownerDocument[expando]];
-        if (!data) {
-          data = {};
-          expanID++;
-          ownerDocument[expando] = expanID;
-          expandoData[expanID] = data;
-        }
-        return data;
-      }
-
-      /**
-       * returns a shived element for the given nodeName and document
-       * @memberOf html5
-       * @param {String} nodeName name of the element
-       * @param {Document} ownerDocument The context document.
-       * @returns {Object} The shived element.
-       */
-      function createElement(nodeName, ownerDocument, data) {
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        if (supportsUnknownElements) {
-          return ownerDocument.createElement(nodeName);
-        }
-        if (!data) {
-          data = getExpandoData(ownerDocument);
-        }
-        var node;
-
-        if (data.cache[nodeName]) {
-          node = data.cache[nodeName].cloneNode();
-        } else if (saveClones.test(nodeName)) {
-          node = (data.cache[nodeName] = data.createElem(nodeName)).cloneNode();
-        } else {
-          node = data.createElem(nodeName);
-        }
-
-        // Avoid adding some elements to fragments in IE < 9 because
-        // * Attributes like `name` or `type` cannot be set/changed once an element
-        //   is inserted into a document/fragment
-        // * Link elements with `src` attributes that are inaccessible, as with
-        //   a 403 response, will cause the tab/window to crash
-        // * Script elements appended to fragments will execute when their `src`
-        //   or `text` property is set
-        return node.canHaveChildren && !reSkip.test(nodeName) && !node.tagUrn ? data.frag.appendChild(node) : node;
-      }
-
-      /**
-       * returns a shived DocumentFragment for the given document
-       * @memberOf html5
-       * @param {Document} ownerDocument The context document.
-       * @returns {Object} The shived DocumentFragment.
-       */
-      function createDocumentFragment(ownerDocument, data) {
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        if (supportsUnknownElements) {
-          return ownerDocument.createDocumentFragment();
-        }
-        data = data || getExpandoData(ownerDocument);
-        var clone = data.frag.cloneNode(),
-            i = 0,
-            elems = getElements(),
-            l = elems.length;
-        for (; i < l; i++) {
-          clone.createElement(elems[i]);
-        }
-        return clone;
-      }
-
-      /**
-       * Shivs the `createElement` and `createDocumentFragment` methods of the document.
-       * @private
-       * @param {Document|DocumentFragment} ownerDocument The document.
-       * @param {Object} data of the document.
-       */
-      function shivMethods(ownerDocument, data) {
-        if (!data.cache) {
-          data.cache = {};
-          data.createElem = ownerDocument.createElement;
-          data.createFrag = ownerDocument.createDocumentFragment;
-          data.frag = data.createFrag();
-        }
-
-        ownerDocument.createElement = function (nodeName) {
-          //abort shiv
-          if (!html5.shivMethods) {
-            return data.createElem(nodeName);
-          }
-          return createElement(nodeName, ownerDocument, data);
-        };
-
-        ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' + 'var n=f.cloneNode(),c=n.createElement;' + 'h.shivMethods&&(' +
-        // unroll the `createElement` calls
-        getElements().join().replace(/[\w\-:]+/g, function (nodeName) {
-          data.createElem(nodeName);
-          data.frag.createElement(nodeName);
-          return 'c("' + nodeName + '")';
-        }) + ');return n}')(html5, data.frag);
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Shivs the given document.
-       * @memberOf html5
-       * @param {Document} ownerDocument The document to shiv.
-       * @returns {Document} The shived document.
-       */
-      function shivDocument(ownerDocument) {
-        if (!ownerDocument) {
-          ownerDocument = document;
-        }
-        var data = getExpandoData(ownerDocument);
-
-        if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
-          data.hasCSS = !!addStyleSheet(ownerDocument,
-          // corrects block display not defined in IE6/7/8/9
-          'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
-          // adds styling not present in IE6/7/8/9
-          'mark{background:#FF0;color:#000}' +
-          // hides non-rendered elements
-          'template{display:none}');
-        }
-        if (!supportsUnknownElements) {
-          shivMethods(ownerDocument, data);
-        }
-        return ownerDocument;
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * The `html5` object is exposed so that more elements can be shived and
-       * existing shiving can be detected on iframes.
-       * @type Object
-       * @example
-       *
-       * // options can be changed before the script is included
-       * html5 = { 'elements': 'mark section', 'shivCSS': false, 'shivMethods': false };
-       */
-      var html5 = {
-
-        /**
-         * An array or space separated string of node names of the elements to shiv.
-         * @memberOf html5
-         * @type Array|String
-         */
-        'elements': options.elements || 'abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video',
-
-        /**
-         * current version of html5shiv
-         */
-        'version': version,
-
-        /**
-         * A flag to indicate that the HTML5 style sheet should be inserted.
-         * @memberOf html5
-         * @type Boolean
-         */
-        'shivCSS': options.shivCSS !== false,
-
-        /**
-         * Is equal to true if a browser supports creating unknown/HTML5 elements
-         * @memberOf html5
-         * @type boolean
-         */
-        'supportsUnknownElements': supportsUnknownElements,
-
-        /**
-         * A flag to indicate that the document's `createElement` and `createDocumentFragment`
-         * methods should be overwritten.
-         * @memberOf html5
-         * @type Boolean
-         */
-        'shivMethods': options.shivMethods !== false,
-
-        /**
-         * A string to describe the type of `html5` object ("default" or "default print").
-         * @memberOf html5
-         * @type String
-         */
-        'type': 'default',
-
-        // shivs the document according to the specified `html5` object options
-        'shivDocument': shivDocument,
-
-        //creates a shived element
-        createElement: createElement,
-
-        //creates a shived documentFragment
-        createDocumentFragment: createDocumentFragment,
-
-        //extends list of elements
-        addElements: addElements
-      };
-
-      /*--------------------------------------------------------------------------*/
-
-      // expose html5
-      window.html5 = html5;
-
-      // shiv the document
-      shivDocument(document);
-
-      /*------------------------------- Print Shiv -------------------------------*/
-
-      /** Used to filter media types */
-      var reMedia = /^$|\b(?:all|print)\b/;
-
-      /** Used to namespace printable elements */
-      var shivNamespace = 'html5shiv';
-
-      /** Detect whether the browser supports shivable style sheets */
-      var supportsShivableSheets = !supportsUnknownElements && function () {
-        // assign a false negative if unable to shiv
-        var docEl = document.documentElement;
-        return !(typeof document.namespaces == 'undefined' || typeof document.parentWindow == 'undefined' || typeof docEl.applyElement == 'undefined' || typeof docEl.removeNode == 'undefined' || typeof window.attachEvent == 'undefined');
-      }();
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Wraps all HTML5 elements in the given document with printable elements.
-       * (eg. the "header" element is wrapped with the "html5shiv:header" element)
-       * @private
-       * @param {Document} ownerDocument The document.
-       * @returns {Array} An array wrappers added.
-       */
-      function addWrappers(ownerDocument) {
-        var node,
-            nodes = ownerDocument.getElementsByTagName('*'),
-            index = nodes.length,
-            reElements = RegExp('^(?:' + getElements().join('|') + ')$', 'i'),
-            result = [];
-
-        while (index--) {
-          node = nodes[index];
-          if (reElements.test(node.nodeName)) {
-            result.push(node.applyElement(createWrapper(node)));
-          }
-        }
-        return result;
-      }
-
-      /**
-       * Creates a printable wrapper for the given element.
-       * @private
-       * @param {Element} element The element.
-       * @returns {Element} The wrapper.
-       */
-      function createWrapper(element) {
-        var node,
-            nodes = element.attributes,
-            index = nodes.length,
-            wrapper = element.ownerDocument.createElement(shivNamespace + ':' + element.nodeName);
-
-        // copy element attributes to the wrapper
-        while (index--) {
-          node = nodes[index];
-          node.specified && wrapper.setAttribute(node.nodeName, node.nodeValue);
-        }
-        // copy element styles to the wrapper
-        wrapper.style.cssText = element.style.cssText;
-        return wrapper;
-      }
-
-      /**
-       * Shivs the given CSS text.
-       * (eg. header{} becomes html5shiv\:header{})
-       * @private
-       * @param {String} cssText The CSS text to shiv.
-       * @returns {String} The shived CSS text.
-       */
-      function shivCssText(cssText) {
-        var pair,
-            parts = cssText.split('{'),
-            index = parts.length,
-            reElements = RegExp('(^|[\\s,>+~])(' + getElements().join('|') + ')(?=[[\\s,>+~#.:]|$)', 'gi'),
-            replacement = '$1' + shivNamespace + '\\:$2';
-
-        while (index--) {
-          pair = parts[index] = parts[index].split('}');
-          pair[pair.length - 1] = pair[pair.length - 1].replace(reElements, replacement);
-          parts[index] = pair.join('}');
-        }
-        return parts.join('{');
-      }
-
-      /**
-       * Removes the given wrappers, leaving the original elements.
-       * @private
-       * @params {Array} wrappers An array of printable wrappers.
-       */
-      function removeWrappers(wrappers) {
-        var index = wrappers.length;
-        while (index--) {
-          wrappers[index].removeNode();
-        }
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      /**
-       * Shivs the given document for print.
-       * @memberOf html5
-       * @param {Document} ownerDocument The document to shiv.
-       * @returns {Document} The shived document.
-       */
-      function shivPrint(ownerDocument) {
-        var shivedSheet,
-            wrappers,
-            data = getExpandoData(ownerDocument),
-            namespaces = ownerDocument.namespaces,
-            ownerWindow = ownerDocument.parentWindow;
-
-        if (!supportsShivableSheets || ownerDocument.printShived) {
-          return ownerDocument;
-        }
-        if (typeof namespaces[shivNamespace] == 'undefined') {
-          namespaces.add(shivNamespace);
-        }
-
-        function removeSheet() {
-          clearTimeout(data._removeSheetTimer);
-          if (shivedSheet) {
-            shivedSheet.removeNode(true);
-          }
-          shivedSheet = null;
-        }
-
-        ownerWindow.attachEvent('onbeforeprint', function () {
-
-          removeSheet();
-
-          var imports,
-              length,
-              sheet,
-              collection = ownerDocument.styleSheets,
-              cssText = [],
-              index = collection.length,
-              sheets = Array(index);
-
-          // convert styleSheets collection to an array
-          while (index--) {
-            sheets[index] = collection[index];
-          }
-          // concat all style sheet CSS text
-          while (sheet = sheets.pop()) {
-            // IE does not enforce a same origin policy for external style sheets...
-            // but has trouble with some dynamically created stylesheets
-            if (!sheet.disabled && reMedia.test(sheet.media)) {
-
-              try {
-                imports = sheet.imports;
-                length = imports.length;
-              } catch (er) {
-                length = 0;
-              }
-
-              for (index = 0; index < length; index++) {
-                sheets.push(imports[index]);
-              }
-
-              try {
-                cssText.push(sheet.cssText);
-              } catch (er) {}
-            }
-          }
-
-          // wrap all HTML5 elements with printable elements and add the shived style sheet
-          cssText = shivCssText(cssText.reverse().join(''));
-          wrappers = addWrappers(ownerDocument);
-          shivedSheet = addStyleSheet(ownerDocument, cssText);
-        });
-
-        ownerWindow.attachEvent('onafterprint', function () {
-          // remove wrappers, leaving the original elements, and remove the shived style sheet
-          removeWrappers(wrappers);
-          clearTimeout(data._removeSheetTimer);
-          data._removeSheetTimer = setTimeout(removeSheet, 500);
-        });
-
-        ownerDocument.printShived = true;
-        return ownerDocument;
-      }
-
-      /*--------------------------------------------------------------------------*/
-
-      // expose API
-      html5.type += ' print';
-      html5.shivPrint = shivPrint;
-
-      // shiv for print
-      shivPrint(document);
-
-      if (( false ? 'undefined' : _typeof(module)) == 'object' && module.exports) {
-        module.exports = html5;
-      }
-    })(typeof window !== 'undefined' ? window : this, document);
-  }
-
-  ;
-
-  // Run each test
-  testRunner();
-
-  // Remove the "no-js" class if it exists
-  setClasses(classes);
-
-  delete ModernizrProto.addTest;
-  delete ModernizrProto.addAsyncTest;
-
-  // Run the things that are supposed to run after the tests
-  for (var i = 0; i < Modernizr._q.length; i++) {
-    Modernizr._q[i]();
-  }
-
-  // Leak Modernizr namespace
-  window.Modernizr = Modernizr;
-
-  ;
-})(window, document);
+    }();var w = { elements: y.elements || "abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video", version: g, shivCSS: y.shivCSS !== !1, supportsUnknownElements: v, shivMethods: y.shivMethods !== !1, type: "default", shivDocument: u, createElement: a, createDocumentFragment: s, addElements: o };e.html5 = w, u(t);var N = /^$|\b(?:all|print)\b/,
+        T = "html5shiv",
+        _ = !v && function () {
+      var n = t.documentElement;return !("undefined" == typeof t.namespaces || "undefined" == typeof t.parentWindow || "undefined" == typeof n.applyElement || "undefined" == typeof n.removeNode || "undefined" == typeof e.attachEvent);
+    }();w.type += " print", w.shivPrint = m, m(t), "object" == ( false ? "undefined" : _typeof(module)) && module.exports && (module.exports = w);
+  }("undefined" != typeof e ? e : this, t), Modernizr.addTest("svg", !!t.createElementNS && !!t.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGRect);var w = "Moz O ms Webkit",
+      N = S._config.usePrefixes ? w.split(" ") : [];S._cssomPrefixes = N;var T = { elem: s("modernizr") };Modernizr._q.push(function () {
+    delete T.elem;
+  });var _ = { style: T.elem.style };Modernizr._q.unshift(function () {
+    delete _.style;
+  });var j = S._config.usePrefixes ? w.toLowerCase().split(" ") : [];S._domPrefixes = j, S.testAllProps = g, S.testAllProps = y, Modernizr.addTest("flexbox", y("flexBasis", "1px", !0)), o(), i(C), delete S.addTest, delete S.addAsyncTest;for (var z = 0; z < Modernizr._q.length; z++) {
+    Modernizr._q[z]();
+  }e.Modernizr = Modernizr;
+}(window, document);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),

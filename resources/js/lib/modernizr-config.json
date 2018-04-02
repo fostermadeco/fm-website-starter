@@ -6,6 +6,7 @@
     "setClasses"
   ],
   "feature-detects": [
-    "test/svg"
+    "test/svg",
+    "css/flexbox"
   ]
 }

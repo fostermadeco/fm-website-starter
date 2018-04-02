@@ -4,7 +4,7 @@ const path = require('path');
 mix.setPublicPath('./public');
 
 mix.js([
-    'resources/js/lib/modernizr-custom.js',
+    'resources/js/lib/modernizr.js',
     'resources/js/main.js',
 ], 'public/assets/main.js');
 
@@ -31,14 +31,6 @@ mix.webpackConfig({
     module: {
         rules: [
             {
-                test: /\.modernizrrc.js$/,
-                loader: 'modernizr-loader',
-            },
-            {
-                test: /\.modernizrrc(\.json)?$/,
-                loader: 'json-loader',
-            },
-            {
                 test: /\.js?$/,
                 exclude: /(node_modules)/,
                 use: [{
@@ -47,11 +39,6 @@ mix.webpackConfig({
                 }],
             },
         ],
-    },
-    resolve: {
-        alias: {
-            modernizr$: path.resolve(__dirname, 'assets/js/lib/.modernizrrc'),
-        },
     },
 });
 

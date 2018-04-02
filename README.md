@@ -78,10 +78,35 @@ Imports can be referenced by the path to the package folder in the node_modules 
 ```
 
 ## Modernizr
-### Modernizr in CSS
-The html Modernizr classes are added via Webpack loading the Modernizr script into the js bundle from `./assets/js/lib/modernizr-custom.js`. The file was downloaded from [modernizr.com](https://modernizr.com/download?svg-dontmin-printshiv-setclasses-shiv). If you want to add another feature test, go to [modernizr](https://modernizr.com/download?svg-dontmin-printshiv-setclasses-shiv) and download a new build.
 
-The `modernizr-custom.js` example file in this repo adds the classes to the html tag and includes the SVG feature test. Here is an example of how to use it in css:
+Modernizr is loaded into the Mix js bundle from `./resources/js/lib/modernizr.js`.
+
+### Adding tests
+
+Tests can be added two ways:
+
+1. Manually download a new version of modernizr.js from modernizr.com
+
+ Open `./resources/js/lib/modernizr.js` and go to the url in the top of the file that includes all the currents tests as query params, e.g. `https://modernizr.com/download/?-....`
+
+ Add tests and copy new file to `./resources/js/lib/modernizr.js`
+
+2. Use the CLI
+
+On the box:
+```
+# globally install CLI - just once
+sudo npm i -g modernizr
+
+# add test to `resources/js/lib/modernizrrc.json`
+npm run modernizr
+```
+
+This will read the `resources/js/lib/modernizrrc.json` and writes a new file to `./resources/js/lib/modernizr.js`;
+
+### Modernizr in CSS
+
+The `modernizr.js` example file in this repo adds the classes to the html tag and includes the SVG feature test. Here is an example of how to use it in css:
 ```
 .svg header {
     background: url("test.svg");
@@ -89,7 +114,6 @@ The `modernizr-custom.js` example file in this repo adds the classes to the html
 ```
 
 ### Modernizr in JS
-On the js side, the `modernizr-loader` package is used to load it into a module for js use. This uses the Modernizr config that is located in `./assets/js/lib/.modernizrrc`. If you want to add another feature to test for, add it to the `./assets/js/lib/.modernizrrc`. You can find feature examples at [modernizer.com](https://modernizr.com/download?svg-dontmin-printshiv-setclasses-shiv).
 
 In the js, the `Modernizr` object holds properties for each test. Test for truthiness:
 
