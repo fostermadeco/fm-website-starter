@@ -85,4 +85,4 @@ fm-example-site.dev.key
 
 # MISC
 .vagrant
-vendor/*
+/vendor/
