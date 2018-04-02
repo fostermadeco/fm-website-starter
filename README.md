@@ -19,7 +19,6 @@ Example project of front end assets using Vagrant and Laravel Mix.
 
 Copy files from this repo into project:
 * `webpack.mix.js`
-* `composer.json`
 * `package.json` (if it doesn't already exist)
 
 Depending how your project assets are setup, you might not need to copy the `resources` and `public` folders. These are examples of how your assets might be setup.
