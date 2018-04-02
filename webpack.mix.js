@@ -59,7 +59,7 @@ if (!mix.config.production) {
     mix.browserSync({
         proxy: 'https://fm-example-site.dev',
         files: [
-            'assets/**/*',
+            'public/assets/**/*',
         ],
         // open: 'external',
         host: '192.168.202.153',
