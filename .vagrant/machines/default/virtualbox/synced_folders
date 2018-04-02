@@ -1,1 +1,0 @@
-{"nfs":{"/var/www/fm-example-site.dev":{"type":"nfs","guestpath":"/var/www/fm-example-site.dev","hostpath":"/Users/kellypacker/Sites/fostermade/fm-example-site-webpack","disabled":false,"__vagrantfile":true,"map_uid":501,"map_gid":20,"nfs_udp":true,"nfs_version":3,"uuid":"2665612508"}}}

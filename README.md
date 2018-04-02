@@ -27,8 +27,8 @@ Depending how your project assets are setup, you might not need to copy the `res
 Once you have copied all the files into your project, install the dependencies:
 ```
 vagrant ssh
-cd /var/www/example-site.dev
-composer install
+cd /var/www/fm-example-site.dev
+sudo cp /etc/ssl/private/fm-example-site.dev.key /var/www/fm-example-site.dev/
 npm install
 ```
 

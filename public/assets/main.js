@@ -10440,14 +10440,20 @@ return jQuery;
 
 __webpack_require__(2);
 __webpack_require__(4);
-module.exports = __webpack_require__(7);
+module.exports = __webpack_require__(10);
 
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+/* WEBPACK VAR INJECTION */(function(module) {var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
 
 /*!
  * modernizr v3.5.0
@@ -11274,7 +11280,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ui_placeholders__ = __webpack_require__(6);
 
 
-__webpack_require__(12);
+__webpack_require__(7);
 
 if (typeof console === "undefined") {
     console = { log: function log() {} };
@@ -11396,21 +11402,11 @@ function addPlaceholders() {
 
 /***/ }),
 /* 7 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_parsleyjs__ = __webpack_require__(13);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_parsleyjs__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_parsleyjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_parsleyjs__);
 
 
@@ -11418,7 +11414,7 @@ $('form').parsley();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery, global) {/*!
@@ -13916,10 +13912,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 });
 //# sourceMappingURL=parsley.js.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(9)))
 
 /***/ }),
-/* 14 */
+/* 9 */
 /***/ (function(module, exports) {
 
 var g;
@@ -13944,6 +13940,12 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

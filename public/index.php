@@ -1,6 +1,6 @@
 <?php
-  require_once 'vendor/autoload.php';
-  require_once 'mix.php';
+  require_once __DIR__ . '/../vendor/autoload.php';
+  require_once __DIR__ . '/../mix.php';
 ?>
 <!doctype html>
 <html lang="en" class="no-js">

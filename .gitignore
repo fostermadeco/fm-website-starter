@@ -79,3 +79,10 @@ $RECYCLE.BIN/
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+
+# browsersync key
+fm-example-site.dev.key
+
+# MISC
+.vagrant
+vendor/*

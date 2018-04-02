@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
+const path = require('path');
 
-mix.setPublicPath('./');
+mix.setPublicPath('./public');
 
 mix.js([
     'resources/js/lib/modernizr-custom.js',
@@ -13,8 +14,18 @@ mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
 });
 
-mix.copy('resources/images', 'public/images');
-mix.copy('resources/fonts', 'public/fonts');
+// mix.copy('assets/images', 'public/images', false);
+
+// temp disable because it was throwing errors
+mix.options({
+    imgLoaderOptions: {
+        enabled: false,
+        gifsicle: {},
+        mozjpeg: {},
+        optipng: {},
+        svgo: {},
+    }
+});
 
 mix.webpackConfig({
     module: {
@@ -27,13 +38,11 @@ mix.webpackConfig({
                 test: /\.modernizrrc(\.json)?$/,
                 loader: 'json-loader',
             },
-            // Use Babel to transpile to es2015 https://babeljs.io/learn-es2015/
             {
                 test: /\.js?$/,
                 exclude: /(node_modules)/,
                 use: [{
                     loader: 'babel-loader',
-                    // { modules: false, targets: { browsers: [ '> 2%' ], uglify: true } }
                     options: mix.config.babel(),
                 }],
             },
@@ -47,22 +56,18 @@ mix.webpackConfig({
 });
 
 if (!mix.config.production) {
-    // view site with BrowserSync at https://fm-example.dev:3000
     mix.browserSync({
-        proxy: 'https://fm-example.dev',
-        // array of files that will be watched for changes
+        proxy: 'https://fm-example-site.dev',
         files: [
-            'assets/**/**/**/*',
-            'craft/templates/**/**/*',
+            'assets/**/*',
         ],
-        // private ip of vagrant box
-        host: '192.168.202.141',
+        // open: 'external',
+        host: '192.168.202.153',
         port: 3000,
         open: false,
         https: {
-            // temporarily fixed by copying key into project - fix this
-            key: 'fm-example.dev.key',
-            cert: '/etc/ssl/certs/fm-example.dev.crt',
+            key: 'fm-example-site.dev.key',
+            cert: '/etc/ssl/certs/fm-example-site.dev.crt',
         },
         watchOptions: {
             usePolling: true,
