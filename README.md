@@ -79,6 +79,8 @@ Imports can be referenced by the path to the package folder in the node_modules 
 
 ## Modernizr
 
+<a name="modernizr"></a>
+
 Modernizr is loaded into the Mix js bundle from `./resources/js/lib/modernizr.js`.
 
 ### Adding tests
