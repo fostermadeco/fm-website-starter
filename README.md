@@ -37,10 +37,10 @@ NOTE: All tasks and commands should be run on the box.
 **Development Task**
 Creates static files in `public/assets/`:
 ```
-npm run start
+npm run dev
 ```
 **Watch Task**
-Usses BrowserSync to refresh assets and reload browser:
+Uses BrowserSync to refresh assets and reload browser:
 ```
 npm run watch
 ```
@@ -49,16 +49,16 @@ View the site at [http://localhost:3000/](http://localhost:3000/) or the proxy a
 
 **Production Task:**
 ```
-npm run dist
+npm run production
 ```
 
 ## Assets
 Add an asset by installing the npm package:
 ```
-npm install --save parsleyjs
-npm install --save handlebars
+npm install parsleyjs
+npm install handlebars
 ```
-__Note if using npm version 5+ the `--save` flag is not necessary.__
+__NOTE: if using npm version 5+ the `--save` flag is not necessary.__
 
 This adds the package the the package.json file. The dependency then needs to be added to your JS file. Depending on the package, it might need to be an import statement or a require:
 
