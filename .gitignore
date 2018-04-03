@@ -54,6 +54,10 @@ modules.xml
 *.ipr
 
 
+### VSCode ###
+.vscode
+
+
 ### System Files ###
 .DS_Store
 

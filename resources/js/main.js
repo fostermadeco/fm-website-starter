@@ -1,5 +1,5 @@
 // import 'parsleyjs';
 
-// window.$ = $;
+// window.$ = window.jQuery = $;
 
 // $('form').parsley();
