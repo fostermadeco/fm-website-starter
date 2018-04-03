@@ -34,12 +34,16 @@ npm install
 NOTE: All tasks and commands should be run on the box.
 
 ## Task Usage
+
 **Development Task**
+
 Creates static files in `public/assets/`:
 ```
 npm run dev
 ```
+
 **Watch Task**
+
 Uses BrowserSync to refresh assets and reload browser:
 ```
 npm run watch
