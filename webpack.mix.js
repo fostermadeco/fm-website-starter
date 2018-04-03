@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-const path = require('path');
 
 mix.setPublicPath('./public');
 
@@ -14,7 +13,8 @@ mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
 });
 
-// mix.copy('assets/images', 'public/images', false);
+mix.copyDirectory('resources/images', 'public/assets/images');
+mix.copyDirectory('resources/fonts', 'public/assets/fonts');
 
 // temp disable because it was throwing errors
 mix.options({
@@ -45,8 +45,10 @@ mix.webpackConfig({
 if (!mix.config.production) {
     mix.browserSync({
         proxy: 'https://fm-example-site.dev',
+        // compiled files in public or templates
         files: [
             'public/assets/**/*',
+            'public/index.php',
         ],
         // open: 'external',
         host: '192.168.202.153',

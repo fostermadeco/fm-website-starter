@@ -18,30 +18,34 @@
     </head>
 
     <body>
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
 
-        <header>
-            <div class="wrapper cleared">
-                <a href="#"><img src="" alt=""></a>
-                <nav>
-                    <ul>
-                        <li><a href="#">nav</a></li>
-                        <li><a href="#">nav</a></li>
-                        <li><a href="#">nav</a></li>
-                    </ul>
-                </nav>
-            </div><!-- /.wrapper -->
-        </header>
+        <div class="container">
+            <h1>Hello world! This is the Boilerplate Build!</h1>
+            <h2><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Welcome</h2>
+            <form action="" novalidate>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
 
-        <div class="content">
-            <div class="wrapper cleared">
-
-                <h1>Hello world! This is the Boilerplate Build!</h1>
-                <h2><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Welcome</h2>
-                <form action="">
-                    <input type="text" name="first_name" required>
-                    <button>Submit</button>
-                </form>
-            </div><!-- /.wrapper -->
+            </form>
         </div><!-- /.content -->
 
         <footer>

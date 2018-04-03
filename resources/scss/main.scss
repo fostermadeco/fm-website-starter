@@ -1,13 +1,15 @@
 /* Google Fonts */
 // @import url(https://fonts.googleapis.com/css?family=XXXXXXXXXXXXXXX);
 
-// @import '~normalize.css';
+@import "~bootstrap/scss/bootstrap";
+
+@import '~normalize.css';
 
 /* General */
-// @import 'reset';
+@import 'reset';
 
 /* Mixins */
-// @import 'mixins/media-queries';
+@import 'mixins/media-queries';
 
 /* CLEARING */
 .cleared:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
@@ -20,5 +22,6 @@
 
 body {
 	visibility:visible !important;
-    background-color:blue;
+    background-color:pink;
 }
+
