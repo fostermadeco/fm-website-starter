@@ -37,6 +37,8 @@ sudo cp /etc/ssl/private/fm-example-site.dev.key /var/www/fm-example-site.dev/
 npm install
 ```
 
+If switching from fm-site-build Gulp tasks see [Gulp to Mix Guide](https://github.com/fostermadeco/standards/blob/master/javascript/gulp-to-mix.md).
+
 ## Task Usage
 
 NOTE: All tasks and commands should be run on the box.
