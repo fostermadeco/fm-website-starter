@@ -15,13 +15,19 @@ Example project of front end assets using Vagrant and Laravel Mix.
 * `resources` contains all source files, these should be modified.
 * `public/assets` should be all compiled files, these files are created automatically and should not be edited.
 
-## Installation
+## How to Use
 
-Copy files from this repo into project:
+For a fresh project, use these instructions. Adjust as necessary for an existing project.
+
+**Copy files from this repo into project:**
 * `webpack.mix.js`
-* `package.json` (if it doesn't already exist)
+* `package.json` (If it doesn't already exist. If it does, copy `scripts` object, and install packages: `cross-env`, `laravel-mix`, `modernizr`, `node-sass`, `browser-sync`, `browser-sync-webpack-plugin`)
+* Copy `resources` directory (starting place for asset organization, contains Modernizr and Modernizr config.)
+* Create empty `public` directory your project.
 
-Depending how your project assets are setup, you might not need to copy the `resources` and `public` folders. These are examples of how your assets might be setup.
+**Setup Vagrant**
+
+See [Provisioner Docs](https://github.com/fostermadeco/development-standard#creating-a-new-project).
 
 Once you have copied all the files into your project, install the dependencies:
 ```
@@ -31,9 +37,9 @@ sudo cp /etc/ssl/private/fm-example-site.dev.key /var/www/fm-example-site.dev/
 npm install
 ```
 
-NOTE: All tasks and commands should be run on the box.
-
 ## Task Usage
+
+NOTE: All tasks and commands should be run on the box.
 
 **Development Task**
 
