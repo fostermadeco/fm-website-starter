@@ -51,13 +51,13 @@ if (!mix.config.production) {
             'public/index.php',
         ],
         // open: 'external',
-        host: '192.168.202.153',
+        // host: '192.168.202.153',
         port: 3000,
         open: false,
-        https: {
-            key: 'fm-example-site.dev.key',
-            cert: '/etc/ssl/certs/fm-example-site.dev.crt',
-        },
+        // https: {
+        //     key: 'fm-example-site.dev.key',
+        //     cert: '/etc/ssl/certs/fm-example-site.dev.crt',
+        // },
         watchOptions: {
             usePolling: true,
             interval: 500,
