@@ -137,3 +137,6 @@ if (!Modernizr.svg) {
 }
 ```
 
+## eslint
+
+Uses [eslint](https://eslint.org/) for linting. More information about the setup in the [FM docs](https://github.com/fostermadeco/standards/blob/master/javascript/eslint.md).
