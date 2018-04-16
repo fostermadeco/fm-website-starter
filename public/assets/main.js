@@ -317,9 +317,11 @@ module.exports = function(module) {
 
 // import 'parsleyjs';
 
-// window.$ = $;
+// window.$ = window.jQuery = $;
 
 // $('form').parsley();
+
+// navigator.serviceWorker
 
 /***/ }),
 /* 4 */

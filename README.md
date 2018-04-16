@@ -19,27 +19,32 @@ Example project of front end assets using Vagrant and Laravel Mix.
 
 For a fresh project, use these instructions. Adjust as necessary for an existing project.
 
-**Copy files from this repo into project:**
+**1. Copy files from this repo into project:**
 * `webpack.mix.js`
 * `package.json` (If it doesn't already exist. If it does, copy `scripts` object, and install packages: `cross-env`, `laravel-mix`, `modernizr`, `node-sass`, `browser-sync`, `browser-sync-webpack-plugin`)
 * Copy `resources` directory (starting place for asset organization, contains Modernizr and Modernizr config.)
 * Create empty `public` directory your project.
+* `Makefile`
 
-**Setup Vagrant**
+**2. Vagrant Setup**
 
-See [Provisioner Docs](https://github.com/fostermadeco/development-standard#creating-a-new-project).
+Setup Vagrant with the [Provisioner](https://github.com/fostermadeco/development-standard#creating-a-new-project).
 
-Once you have copied all the files into your project, install the dependencies:
+**3. Run Initialization**
+
+Once all the files are in place, run the initialization commands:
 ```
+make init
 vagrant ssh
 cd /var/www/fm-example-site.dev
-sudo cp /etc/ssl/private/fm-example-site.dev.key /var/www/fm-example-site.dev/
+# temp - until this is added to the provisioner
+sudo chmod o+x /etc/ssl/private
 npm install
 ```
 
 If switching from fm-site-build Gulp tasks see [Gulp to Mix Guide](https://github.com/fostermadeco/standards/blob/master/javascript/gulp-to-mix.md).
 
-## Task Usage
+## Asset Task Usage
 
 NOTE: All tasks and commands should be run on the box.
 
