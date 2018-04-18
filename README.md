@@ -37,7 +37,7 @@ Once all the files are in place, run the initialization commands:
 make init
 vagrant ssh
 cd /var/www/fm-example-site.dev
-# temp - until this is added to the provisioner
+# temp - until this is added to the provisioner - to make browsersync work with ssl
 sudo chmod o+x /etc/ssl/private
 npm install
 ```
