@@ -160,3 +160,10 @@ if (!Modernizr.svg) {
 ## eslint
 
 Uses [eslint](https://eslint.org/) for linting. More information about the setup in the [FM docs](https://github.com/fostermadeco/standards/blob/master/javascript/eslint.md).
+
+
+## Package notes
+
+### Font Awesome
+
+Uses [version 5.x](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers). This installation specifies the folder for the Font Awesome fonts as `/public/assets/fonts/@fortawesome/fontawesome-free` as `$fa-font-path` in `/resources/scss/_variables.scss` and specifies that they should be copied to that dir in `webpack.mix.js`.

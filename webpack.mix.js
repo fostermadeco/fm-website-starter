@@ -4,7 +4,6 @@ const host = 'fm-example-site.dev';
 
 mix.setPublicPath('./public');
 
-
 mix.js([
     'resources/js/lib/modernizr.js',
     'resources/js/main.js',

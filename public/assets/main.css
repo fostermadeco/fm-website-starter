@@ -4839,6 +4839,60 @@ readers do not read off random characters that represent icons */
 }
 
 /*!
+ * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.eot");
+  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.woff2") format("woff2"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.woff") format("woff"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.ttf") format("truetype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.svg#fontawesome") format("svg");
+}
+
+.far {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+}
+
+/*!
+ * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.eot");
+  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.woff2") format("woff2"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.woff") format("woff"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.ttf") format("truetype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+}
+
+/*!
+ * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.eot");
+  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.woff2") format("woff2"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.woff") format("woff"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.ttf") format("truetype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+/*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
