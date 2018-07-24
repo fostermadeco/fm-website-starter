@@ -28,6 +28,8 @@ For a fresh project, use these instructions. Adjust as necessary for an existing
 * Create empty `public` directory your project.
 * `Makefile`
 
+You can use this [README.md](https://github.com/fostermadeco/standards/blob/master/samples/README.md) as a starting point.
+
 ### 2. Vagrant Setup
 
 Setup Vagrant with the [Provisioner](https://github.com/fostermadeco/development-standard#creating-a-new-project).
