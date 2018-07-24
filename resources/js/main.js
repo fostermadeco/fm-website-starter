@@ -1,3 +1,4 @@
-import './ui/externalLinks';
-import './ui/placeholders';
+import initUI from './ui/ui';
 import './ui/forms';
+
+initUI();
