@@ -17,32 +17,45 @@ Example project of front end assets using Vagrant and Laravel Mix.
 
 ## How to Use
 
+NOTE: If switching from fm-site-build Gulp tasks see [Gulp to Mix Guide](https://github.com/fostermadeco/standards/blob/master/javascript/gulp-to-mix.md).
+
 For a fresh project, use these instructions. Adjust as necessary for an existing project.
 
-**1. Copy files from this repo into project:**
+### 1. Copy files from this repo into project:
 * `webpack.mix.js`
 * `package.json` (If it doesn't already exist. If it does, copy `scripts` object, and install packages: `cross-env`, `laravel-mix`, `modernizr`, `node-sass`, `browser-sync`, `browser-sync-webpack-plugin`)
 * Copy `resources` directory (starting place for asset organization, contains Modernizr and Modernizr config.)
 * Create empty `public` directory your project.
 * `Makefile`
 
-**2. Vagrant Setup**
+### 2. Vagrant Setup
 
 Setup Vagrant with the [Provisioner](https://github.com/fostermadeco/development-standard#creating-a-new-project).
 
-**3. Run Initialization**
+### 3. Run Initialization
 
 Once all the files are in place, run the initialization commands:
 ```
 make init
 vagrant ssh
-cd /var/www/fm-example-site.dev
-# temp - until this is added to the provisioner - to make browsersync work with ssl
-sudo chmod o+x /etc/ssl/private
 npm install
 ```
 
-If switching from fm-site-build Gulp tasks see [Gulp to Mix Guide](https://github.com/fostermadeco/standards/blob/master/javascript/gulp-to-mix.md).
+### 4. Add Assets to Template
+
+This step depends on the CMS on the site. For no CMS:
+
+Copy `composer.json`, `mix.php` from this repo and run on the box:
+
+```
+composer install
+```
+
+The `mix.php` might have to be adjusted depending on where the assets are for a project.
+
+#### CMS Plugins
+
+* [Craft 3 Mix](https://github.com/mister-bk/craft-plugin-mix)
 
 ## Asset Task Usage
 

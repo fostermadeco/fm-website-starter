@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+const host = 'fm-example-site.dev';
+
 mix.setPublicPath('./public');
 
 mix.js([
@@ -44,7 +46,7 @@ mix.webpackConfig({
 
 if (!mix.config.production) {
     mix.browserSync({
-        proxy: 'https://fm-example-site.dev',
+        proxy: `https://${host}`,
         // compiled files in public or templates
         files: [
             'public/assets/**/*',
@@ -55,8 +57,8 @@ if (!mix.config.production) {
         port: 3000,
         open: false,
         https: {
-            key: '/etc/ssl/private/fm-example-site.dev.key',
-            cert: '/etc/ssl/certs/fm-example-site.dev.crt',
+            key: `/etc/ssl/private/${host}.key`,
+            cert: `/etc/ssl/certs/${host}.crt`,
         },
         watchOptions: {
             usePolling: true,
