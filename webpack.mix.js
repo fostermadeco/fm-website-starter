@@ -4,10 +4,14 @@ const host = 'fm-example-site.dev';
 
 mix.setPublicPath('./public');
 
+
 mix.js([
     'resources/js/lib/modernizr.js',
     'resources/js/main.js',
 ], 'public/assets/main.js');
+
+// order matters, before scss
+mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/fonts/@fortawesome/fontawesome-free');
 
 mix.sass('resources/scss/main.scss', 'public/assets');
 
