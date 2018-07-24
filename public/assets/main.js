@@ -10440,7 +10440,7 @@ return jQuery;
 
 __webpack_require__(2);
 __webpack_require__(4);
-module.exports = __webpack_require__(10);
+module.exports = __webpack_require__(9);
 
 
 /***/ }),
@@ -10688,24 +10688,27 @@ module.exports = function(module) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_externalLinks__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ui_placeholders__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ui_forms__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_ui__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ui_forms__ = __webpack_require__(6);
 
 
 
+Object(__WEBPACK_IMPORTED_MODULE_0__ui_ui__["a" /* default */])();
 
 /***/ }),
 /* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* unused harmony export buildExternal */
-// OPEN .PDF'S AND EXTERNAL LINKS IN A NEW WINDOW
-function buildExternal() {
+/* WEBPACK VAR INJECTION */(function($) {// OPEN .PDF'S AND EXTERNAL LINKS IN A NEW WINDOW
+var openExternalInNewWindow = function openExternalInNewWindow() {
     $('a[href^="http:"], a[href^="https:"]').not('[href*="' + document.domain + '"]').attr('target', '_blank');
     $('a[href$=".pdf"]').attr('target', '_blank');
-}
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    openExternalInNewWindow();
+});
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
@@ -10713,100 +10716,7 @@ function buildExternal() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(jQuery, $) {/* unused harmony export addPlaceholders */
-// PLACEHOLDERS
-(function (f, h, $) {
-    var a = 'placeholder' in h.createElement('input'),
-        d = 'placeholder' in h.createElement('textarea'),
-        i = $.fn,
-        c = $.valHooks,
-        k,
-        j;if (a && d) {
-        j = i.placeholder = function () {
-            return this;
-        };j.input = j.textarea = true;
-    } else {
-        j = i.placeholder = function () {
-            var l = this;l.filter((a ? 'textarea' : ':input') + '[placeholder]').not('.placeholder').bind({ 'focus.placeholder': b, 'blur.placeholder': e }).data('placeholder-enabled', true).trigger('blur.placeholder');return l;
-        };j.input = a;j.textarea = d;k = { get: function get(m) {
-                var l = $(m);return l.data('placeholder-enabled') && l.hasClass('placeholder') ? '' : m.value;
-            }, set: function set(m, n) {
-                var l = $(m);if (!l.data('placeholder-enabled')) {
-                    return m.value = n;
-                }if (n == '') {
-                    m.value = n;if (m != h.activeElement) {
-                        e.call(m);
-                    }
-                } else {
-                    if (l.hasClass('placeholder')) {
-                        b.call(m, true, n) || (m.value = n);
-                    } else {
-                        m.value = n;
-                    }
-                }return l;
-            } };a || (c.input = k);d || (c.textarea = k);$(function () {
-            $(h).delegate('form', 'submit.placeholder', function () {
-                var l = $('.placeholder', this).each(b);setTimeout(function () {
-                    l.each(e);
-                }, 10);
-            });
-        });$(f).bind('beforeunload.placeholder', function () {
-            $('.placeholder').each(function () {
-                this.value = '';
-            });
-        });
-    }function g(m) {
-        var l = {},
-            n = /^jQuery\d+$/;$.each(m.attributes, function (p, o) {
-            if (o.specified && !n.test(o.name)) {
-                l[o.name] = o.value;
-            }
-        });return l;
-    }function b(m, n) {
-        var l = this,
-            o = $(l);if (l.value == o.attr('placeholder') && o.hasClass('placeholder')) {
-            if (o.data('placeholder-password')) {
-                o = o.hide().next().show().attr('id', o.removeAttr('id').data('placeholder-id'));if (m === true) {
-                    return o[0].value = n;
-                }o.focus();
-            } else {
-                l.value = '';o.removeClass('placeholder');l == h.activeElement && l.select();
-            }
-        }
-    }function e() {
-        var q,
-            l = this,
-            p = $(l),
-            m = p,
-            o = this.id;if (l.value == '') {
-            if (l.type == 'password') {
-                if (!p.data('placeholder-textinput')) {
-                    try {
-                        q = p.clone().attr({ type: 'text' });
-                    } catch (n) {
-                        q = $('<input>').attr($.extend(g(this), { type: 'text' }));
-                    }q.removeAttr('name').data({ 'placeholder-password': true, 'placeholder-id': o }).bind('focus.placeholder', b);p.data({ 'placeholder-textinput': q, 'placeholder-id': o }).before(q);
-                }p = p.removeAttr('id').hide().prev().attr('id', o).show();
-            }p.addClass('placeholder');p[0].value = p.attr('placeholder');
-        } else {
-            p.removeClass('placeholder');
-        }
-    }
-})(this, document, jQuery);
-
-function addPlaceholders() {
-    if ($('form').length > 0) {
-        $('input, textarea').placeholder();
-    }
-}
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0), __webpack_require__(0)))
-
-/***/ }),
-/* 7 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_parsleyjs__ = __webpack_require__(8);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_parsleyjs__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_parsleyjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_parsleyjs__);
 
 
@@ -10814,7 +10724,7 @@ $('form').parsley();
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery, global) {/*!
@@ -13312,10 +13222,10 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 });
 //# sourceMappingURL=parsley.js.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(8)))
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports) {
 
 var g;
@@ -13342,7 +13252,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
