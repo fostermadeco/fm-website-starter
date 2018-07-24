@@ -1,8 +1,3 @@
-// import 'parsleyjs';
-
-// window.$ = window.jQuery = $;
-
-// $('form').parsley();
-
-// navigator.serviceWorker
-
+import './ui/externalLinks';
+import './ui/placeholders';
+import './ui/forms';
