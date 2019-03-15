@@ -1,7 +1,6 @@
 init:
 	@echo "Initializing"
-	git submodule init && \
-	git submodule update --remote && \
+	git submodule add git@github.com:fostermadeco/ansible-roles.git ansible/roles && \
 	vagrant up
 
 update-provisioner:
