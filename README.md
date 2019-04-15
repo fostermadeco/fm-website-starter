@@ -171,9 +171,9 @@ if (!Modernizr.svg) {
 }
 ```
 
-## eslint
+## Eslint and Prettier
 
-Uses [eslint](https://eslint.org/) for linting. More information about the setup in the [FM docs](https://github.com/fostermadeco/standards/blob/master/javascript/eslint.md).
+Uses FM's [Eslint and Prettier setup](https://github.com/fostermadeco/eslint-config-fostermade). 
 
 ## Package notes
 

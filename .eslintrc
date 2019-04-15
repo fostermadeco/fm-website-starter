@@ -1,26 +1,5 @@
 {
-    "env": {
-        "es6": true,
-        "browser": true
-    },
-    "extends": "airbnb-base",
-    "plugins": [
-        "import",
-        "compat"
-    ],
-    "rules": {
-        "semi": "error",
-        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-        "no-console": "off",
-        "no-unused-vars": "warn",
-        "indent": [ 2, 4 ],
-        "max-len": "warn",
-        "no-underscore-dangle": "off",
-        "no-use-before-define": "warn",
-        "object-shorthand": "warn",
-        "no-param-reassign": "off",
-        "import/prefer-default-export": "warn",
-        "prefer-template": "warn",
-        "compat/compat": "error"
-    }
+    "extends": [
+        "fostermade"
+    ]
 }
