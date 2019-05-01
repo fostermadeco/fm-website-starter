@@ -37,6 +37,7 @@
 
         <div class="container">
             <h1>Hello world!</h1>
+            <h2 id="people"></h2>
             <h2><i class="fas fa-arrow-circle-right" aria-hidden="true"></i> Welcome</h2>
             <h2><a href="http://google.com">Google</a></h2>
             <form action="" novalidate>
@@ -47,6 +48,22 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
 
             </form>
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img src="https://picsum.photos/300/200" />
+                    </li>
+                    <li>
+                        <img src="https://picsum.photos/300/200?grayscale" />
+                    </li>
+                    <li>
+                        <img src="https://picsum.photos/300/200?blur" />
+                    </li>
+                    <li>
+                        <img src="https://picsum.photos/300/200" />
+                    </li>
+                </ul>
+            </div>
         </div><!-- /.content -->
 
         <footer>
