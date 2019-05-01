@@ -25,10 +25,11 @@ For a fresh project, use these instructions. Adjust as necessary for an existing
 
 - `webpack.mix.js`
 - `composer.json`
-- `package.json` (If it doesn't already exist. If it does, copy `scripts` object, and install packages: `cross-env`, `laravel-mix`, `modernizr`, `node-sass`, `browser-sync`, `browser-sync-webpack-plugin`)
+- `package.json` (If it doesn't already exist. If it does, copy `browserlist` ,`scripts`, `dependencies` and `devDependencies` from this `package.json` into the project `package.json`)
 - Copy `resources` directory (starting place for asset organization, contains Modernizr and Modernizr config.)
 - Create empty `public` directory your project.
 - `Makefile`
+- `.eslintrc`
 
 You can use this [README.md](https://github.com/fostermadeco/standards/blob/master/samples/README.md) as a starting point.
 
@@ -41,7 +42,7 @@ Setup Vagrant with the [Provisioner](https://github.com/fostermadeco/development
 Once all the files are in place, run the initialization commands:
 
 ```
-make init
+make create
 vagrant ssh
 npm install
 ```
@@ -170,6 +171,11 @@ if (!Modernizr.svg) {
     console.log('This browser does not support svg!');
 }
 ```
+
+## Browserlist
+
+
+
 
 ## Eslint and Prettier
 
