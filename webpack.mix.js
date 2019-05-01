@@ -1,18 +1,22 @@
 const mix = require('laravel-mix');
 
 const host = 'fm-example-site.dev';
+const localIP = '192.168.202.153';
 
 mix.setPublicPath('./public');
 
-mix.js([
-    'resources/js/lib/modernizr.js',
-    'resources/js/main.js',
-], 'public/assets/main.js');
+mix.js(['resources/js/lib/modernizr.js', 'resources/js/main.js'], 'public/assets/main.js');
 
 // order matters, before scss
 mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/fonts/@fortawesome/fontawesome-free');
 
-mix.sass('resources/scss/main.scss', 'public/assets');
+mix.sass('resources/scss/main.scss', 'public/assets').options({
+    autoprefixer: {
+        options: {
+            browsers: ['last 2 versions', '> 1%', 'IE 11'],
+        },
+    },
+});
 
 mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
@@ -29,19 +33,23 @@ mix.options({
         mozjpeg: {},
         optipng: {},
         svgo: {},
-    }
+    },
 });
 
+// use this config to make imports work https://github.com/JeffreyWay/laravel-mix/issues/971#issuecomment-322300417
+// and use mix.js instead of mix.babel
 mix.webpackConfig({
     module: {
         rules: [
             {
                 test: /\.js?$/,
                 exclude: /(node_modules)/,
-                use: [{
-                    loader: 'babel-loader',
-                    options: mix.config.babel(),
-                }],
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: mix.config.babel(),
+                    },
+                ],
             },
         ],
     },
@@ -51,12 +59,9 @@ if (!mix.config.production) {
     mix.browserSync({
         proxy: `https://${host}`,
         // compiled files in public or templates
-        files: [
-            'public/assets/**/*',
-            'public/index.php',
-        ],
+        files: ['public/assets/**/*', 'public/index.php'],
         // open: 'external',
-        host: '192.168.202.153',
+        host: localIP,
         port: 3000,
         open: false,
         https: {
