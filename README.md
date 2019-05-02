@@ -4,11 +4,12 @@ Example project of front end assets using Vagrant and Laravel Mix.
 
 ## What is included
 
-- [Laravel Mix](https://github.com/JeffreyWay/laravel-mix) (which uses Webpack)
+- [Laravel Mix](https://github.com/JeffreyWay/laravel-mix) (which uses Webpack, Babel)
 - Global jQuery reference
 - Includes Modernizr
 - JS bundle file (main.js)
 - Loading of scss files in separate bundle (main.css)
+- Includes polyfills for ES2015+ methods and features
 
 ## Things to note
 
@@ -30,6 +31,7 @@ For a fresh project, use these instructions. Adjust as necessary for an existing
 - Create empty `public` directory your project.
 - `Makefile`
 - `.eslintrc`
+- `.babelrc`
 
 You can use this [README.md](https://github.com/fostermadeco/standards/blob/master/samples/README.md) as a starting point.
 
@@ -172,10 +174,27 @@ if (!Modernizr.svg) {
 }
 ```
 
-## Browserlist
+## Browser Support
 
+Laravel Mix does not support use of a `.browserslistrc` file so browsers have to be specified in a couple of different places. 
 
+**SCSS**
 
+For the sass autoprefixer, they are specified in `webpack.mix.js`.
+
+**JS**
+
+Mix supports ES2015 syntax out of the box with `mix.js`. This setup also add polyfills for use of ES2015+ methods and objects. This includes them all with the `useBuiltIns` option set to `entry` in the `.babelrc`. Consult this table to view [ES2015+ browser compatibility](https://kangax.github.io/compat-table/es6/). 
+
+To get a list of which plugins and polyfills are added, add `"debug": true` to the `@babel/preset-env` options.
+
+**browserlist**
+
+Mix doesn't support using a `.browserslistrc`, but if you want to see which browsers are includes in a `browserlist` query string for the `targets` in `.babelrc`, run:
+```
+npx browserslist 'last 1 version, > 1%'
+```
+More about how to specify which browsers should be included is here [browserlist](https://github.com/browserslist/browserslist).
 
 ## Eslint and Prettier
 
