@@ -5,15 +5,17 @@ const localIP = '192.168.202.153';
 
 mix.setPublicPath('./public');
 
+// be sure to use mix.js - not mix.scripts or mix.babel
 mix.js(['resources/js/lib/modernizr.js', 'resources/js/main.js'], 'public/assets/main.js');
 
-// order matters, before scss
+// order matters, before scss to set sass variable
 mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/fonts/@fortawesome/fontawesome-free');
 
+// Mix doesn't support use of .browserlistrc file so need to specify them here
 mix.sass('resources/scss/main.scss', 'public/assets').options({
     autoprefixer: {
         options: {
-            browsers: ['last 2 versions', '> 1%', 'IE 11'],
+            browsers: ['last 1 version', '> 1%'],
         },
     },
 });
@@ -24,36 +26,6 @@ mix.autoload({
 
 mix.copyDirectory('resources/images', 'public/assets/images');
 mix.copyDirectory('resources/fonts', 'public/assets/fonts');
-
-// temp disable because it was throwing errors
-mix.options({
-    imgLoaderOptions: {
-        enabled: false,
-        gifsicle: {},
-        mozjpeg: {},
-        optipng: {},
-        svgo: {},
-    },
-});
-
-// use this config to make imports work https://github.com/JeffreyWay/laravel-mix/issues/971#issuecomment-322300417
-// and use mix.js instead of mix.babel
-mix.webpackConfig({
-    module: {
-        rules: [
-            {
-                test: /\.js?$/,
-                exclude: /(node_modules)/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: mix.config.babel(),
-                    },
-                ],
-            },
-        ],
-    },
-});
 
 if (!mix.config.production) {
     mix.browserSync({
