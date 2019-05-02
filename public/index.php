@@ -37,7 +37,6 @@
 
         <div class="container">
             <h1>Hello world!</h1>
-            <h2 id="people">Loading...</h2>
             <h2><i class="fas fa-arrow-circle-right" aria-hidden="true"></i> Welcome</h2>
             <h2><a href="http://google.com">Google</a></h2>
             <form action="" novalidate>
