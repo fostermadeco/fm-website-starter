@@ -5,7 +5,7 @@
             {
                 "modules": false,
                 "forceAllTransforms": true,
-                "useBuiltIns": "entry",
+                "useBuiltIns": "usage",
                 "targets": "last 1 version, > 1%"
             }
         ]
