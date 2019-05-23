@@ -1,8 +1,8 @@
-# Foster Made Front End Starter Project
+# Foster Made Front-End Starter Project
 
-Example project of front end assets using Vagrant and Laravel Mix.
+Starter files for new project using Vagrant and Laravel Mix.
 
-## What is included
+## What is included:
 
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix) (which uses Webpack, Babel)
 - Global jQuery reference
