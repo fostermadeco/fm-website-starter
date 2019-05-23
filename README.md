@@ -8,8 +8,9 @@ Example project of front end assets using Vagrant and Laravel Mix.
 - Global jQuery reference
 - Includes Modernizr
 - JS bundle file (main.js)
-- Loading of scss files in separate bundle (main.css)
-- Includes polyfills for ES2015+ methods and features
+- Scss files in separate bundle (main.css)
+- Automatically adds CSS vendor prefixes
+- Includes support for Javascript ES2015 and ES2017 features
 
 ## Things to note
 
@@ -26,7 +27,7 @@ For a fresh project, use these instructions. Adjust as necessary for an existing
 
 - `webpack.mix.js`
 - `composer.json`
-- `package.json` (If it doesn't already exist. If it does, copy `browserlist` ,`scripts`, `dependencies` and `devDependencies` from this `package.json` into the project `package.json`)
+- `package.json` (If it doesn't already exist. If it does, copy,`scripts`, `dependencies` and `devDependencies` from this `package.json` into the project `package.json`)
 - Copy `resources` directory (starting place for asset organization, contains Modernizr and Modernizr config.)
 - Create empty `public` directory your project.
 - `Makefile`
@@ -104,14 +105,15 @@ npm install handlebars
 
 **NOTE: if using npm version 5+ the `--save` flag is not necessary.**
 
-This adds the package the the package.json file. The dependency then needs to be added to your JS file. Depending on the package, it might need to be an import statement or a require:
+This adds the package the the package.json file. The dependency then needs to be added to your JS file. Depending on the package, the import might need to be formatted differently:
 
 ```
 import parsleyjs from 'parsleyjs';
-const Handlebars = require('handlebars');
+import Handlebars from 'handlebars';
+import 'flexslider';
 ```
 
-Read more about ES6 modules in the [FM JS styleguide]().
+See more examples of how to import [packages frequently used on FM projects](https://github.com/fostermadeco/standards/blob/master/javascript/npm-package-examples.md). Read more about [modules in the FM Standards repo](https://github.com/fostermadeco/standards/blob/master/javascript/modules.md).
 
 ## Sass
 
@@ -176,31 +178,38 @@ if (!Modernizr.svg) {
 
 ## Browser Support
 
-Laravel Mix does not support use of a `.browserslistrc` file so browsers have to be specified in a couple of different places. 
+With this setup CSS vendor prefixes are added automatically. Also you can safely use all Javascript ES2015 and ES2017 features. For newer features, consult the [ECMAScript compatibility table](https://kangax.github.io/compat-table/es2016plus/).
+
+The target browsers that are supported depend on the `browserslist` query provided. In this setup, this is set to `"last 1 version, > 1%"` (which includes IE11).
+
+Laravel Mix does not support use of a `.browserslistrc` file so the target browsers have to be specified in a couple of different places. 
 
 **SCSS**
 
-For the sass autoprefixer, they are specified in `webpack.mix.js`.
+For the Sass autoprefixer, the `browserslist` is specified in `webpack.mix.js`.
 
 **JS**
 
-Mix supports ES2015 syntax out of the box with `mix.js`. This setup also add polyfills for use of ES2015+ methods and objects. This includes them all with the `useBuiltIns` option set to `entry` in the `.babelrc`. Consult this table to view [ES2015+ browser compatibility](https://kangax.github.io/compat-table/es6/). 
+For the JS, the `browserslist` is specified in the `.babelrc`. It is located in the `targets` option in the `@babel/preset-env`. 
+
+This setup includes polyfills for the targeted browsers. Polyfills are only included for new JS featured that are used in the codebase. See the `.babelrc` file and the `useBuiltIns` option which is set to `usage`. With `usage`, the polyfill does not need to be imported into the `main.js`. Note that `usage` is experimental, test your project in IE11. 
 
 To get a list of which plugins and polyfills are added, add `"debug": true` to the `@babel/preset-env` options.
 
-**browserlist**
+**browserslist**
 
-Mix doesn't support using a `.browserslistrc`, but if you want to see which browsers are includes in a `browserlist` query string for the `targets` in `.babelrc`, run:
+To see which browsers are included in a `browserslist` query, run this one-off command in terminal:
 ```
 npx browserslist 'last 1 version, > 1%'
 ```
-More about how to specify which browsers should be included is here [browserlist](https://github.com/browserslist/browserslist).
+
+More about how to specify which browsers should be included is here [browserslist](https://github.com/browserslist/browserslist).
 
 ## Eslint and Prettier
 
 Uses FM's [Eslint and Prettier setup](https://github.com/fostermadeco/eslint-config-fostermade). 
 
-## Package notes
+## Specific Package notes
 
 ### Font Awesome
 
