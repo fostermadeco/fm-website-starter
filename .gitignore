@@ -27,6 +27,12 @@ yarn-error.log*
 dist/
 build/
 
+# Hot reloading
+hot
+
+# Versioning
+mix-manifest.json
+
 
 ### SublimeText ###
 # cache files for sublime text
@@ -46,6 +52,10 @@ build/
 /.idea
 modules.xml
 *.ipr
+
+
+### VSCode ###
+.vscode
 
 
 ### System Files ###
@@ -73,3 +83,7 @@ $RECYCLE.BIN/
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+
+# MISC
+.vagrant
+/vendor/
