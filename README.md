@@ -1,6 +1,6 @@
-# Foster Made Front-End Starter Project
+# Foster Made Website Starter
 
-Starter files for new project using Vagrant and Laravel Mix.
+Starter files for new website project using Vagrant and Laravel Mix.
 
 ## What is included:
 
