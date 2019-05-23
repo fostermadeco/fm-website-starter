@@ -1,7 +1,7 @@
 const mix = require('laravel-mix');
 
 const host = 'fm-example-site.dev';
-const localIP = '192.168.202.153';
+const vagrantIP = '192.168.202.153';
 
 mix.setPublicPath('./public');
 
@@ -20,6 +20,7 @@ mix.sass('resources/scss/main.scss', 'public/assets').options({
     },
 });
 
+// Makes $ available globally, no need to import it
 mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
 });
@@ -32,8 +33,7 @@ if (!mix.config.production) {
         proxy: `https://${host}`,
         // compiled files in public or templates
         files: ['public/assets/**/*', 'public/index.php'],
-        // open: 'external',
-        host: localIP,
+        host: vagrantIP,
         port: 3000,
         open: false,
         https: {
