@@ -26,7 +26,7 @@
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.2.0",
         "babel-eslint": "^9.0.0",
-        "browser-sync": "^2.23.6",
+        "browser-sync": "^2.26.7",
         "browser-sync-webpack-plugin": "^2.0.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb": "^17.1.0",
