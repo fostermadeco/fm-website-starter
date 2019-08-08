@@ -11,14 +11,12 @@ mix.js(['resources/js/lib/modernizr.js', 'resources/js/main.js'], 'public/assets
 // order matters, before scss to set sass variable
 mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/fonts/@fortawesome/fontawesome-free');
 
-// Mix doesn't support use of .browserlistrc file so need to specify them here
-mix.sass('resources/scss/main.scss', 'public/assets').options({
-    autoprefixer: {
-        options: {
-            browsers: ['last 1 version', '> 1%'],
-        },
-    },
-});
+// Autoprefixer on by default
+// Webpack was throwing an error for when using Mix's options.autoprefixer.options
+// If you need to overwrite default browsers add a .browserlistrc file
+// Previously Mix didn't support .browserlistrc files, but I think it does now
+// https://laravel-mix.com/docs/4.1/css-preprocessors#postcss-plugins
+mix.sass('resources/scss/main.scss', 'public/assets');
 
 // Makes $ available globally, no need to import it
 mix.autoload({
