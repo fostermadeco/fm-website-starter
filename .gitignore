@@ -87,3 +87,4 @@ $RECYCLE.BIN/
 # MISC
 .vagrant
 /vendor/
+ansible/provision.retry
