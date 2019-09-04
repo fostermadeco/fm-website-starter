@@ -1,13 +1,11 @@
 create:
-	@echo "Adding submodule"
+	@echo "Adding ansible submodule"
 	git submodule add git@github.com:fostermadeco/ansible-roles.git ansible/roles && \
-	@echo "vagrant up"
 	vagrant up
 
 init:
-	@echo "Initializing submodule"
+	@echo "Initializing ansible submodule"
 	git submodule update --init && \
-	@echo "vagrant up"
 	vagrant up
 
 update-provisioner:
