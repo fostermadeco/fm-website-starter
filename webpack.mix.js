@@ -17,7 +17,12 @@ mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/f
 // browsers by adding a .browserlistrc file
 // Previously Mix didn't support .browserlistrc files, but I think it does now
 // https://laravel-mix.com/docs/4.1/css-preprocessors#postcss-plugins
-mix.sass('resources/scss/main.scss', 'public/assets');
+
+// Url processing was making build extremely slow, so turning it off by default
+// https://laravel.com/docs/5.8/mix#url-processing
+mix.sass('resources/scss/main.scss', 'public/assets').options({
+    processCssUrls: false,
+});
 
 // Makes $ available globally, no need to import it
 mix.autoload({
