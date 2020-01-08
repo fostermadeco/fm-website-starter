@@ -1,13 +1,30 @@
-# This will be the hostname and virtualhost servername. It should end with .dev
-hostname: fm-website-starter.dev
+# This will be the hostname and virtualhost servername. It should end with `.test`.
+# If you need to include vhost-specific directives for the primary vhost, add
+# them to the existing `files/vhost_fragment.conf.j2` file.
+hostname: example.test
 
 # This var is used in Vagrantfile, so embedded vars (e.g., hostname)
 # will *not* be interpolated. Be sure to update the TLD and 2LD
 # accordingly.
-#email_hostname: email.fm-website-starter.dev
+email_hostname: email.example.test
+
+# Use this if you have additional server aliases for the primary vhost (not
+# additional vhosts).
+#
+# server_aliases:
+#    - alias.example.test
+
+# Use this if you are including a task that creates a vhost (the Minio
+# task, for example) to ensure that the additional hostname is added to
+# your local hosts file. It also ensures the hostname is added to the
+# self-signed SSL certificate. Adding a host here will not actually
+# create a vhost for you.
+#
+# additional_vhosts:
+#    - minio.example.test
 
 # This is the private address. Grab the next available from the Google spreadsheet.
-private_address: 192.168.202.153
+private_address: 192.168.202.101
 
 # This is the public html directory inside the app
 public_dir: public
@@ -16,11 +33,16 @@ public_dir: public
 document_root: /var/www/{{ hostname }}/{{ public_dir }}
 
 # Use this if you want to modify your PHP version
+#
 # php_version: "5.6"
 
 # Use this if you want to modify the node version. It can be
 # 9, 8, 6 or 4. It defaults to the highest value.
-node_version: 9
+# node_version: 8
+
+# Use this if you want to modify the MongoDB version. It defaults
+# to 3.6 but can be set to 3.4.
+# mongodb_version: 3.4
 
 # Add all required PHP modules to this list
 php_modules:
