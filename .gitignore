@@ -23,9 +23,8 @@ yarn-error.log*
 .env
 .env.*
 
-#Build generated
-dist/
-build/
+# Build generated
+public/assets
 
 # Hot reloading
 hot
@@ -88,3 +87,6 @@ $RECYCLE.BIN/
 .vagrant
 /vendor/
 ansible/provision.retry
+###> rokanan ###
+ubuntu-*-console.log
+###< rokanan ###
