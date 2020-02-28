@@ -1,6 +1,6 @@
 const mix = require('laravel-mix');
 
-const host = 'fm-website-starter.dev';
+const host = 'fm-website-starter.test';
 const vagrantIP = '192.168.202.153';
 
 mix.setPublicPath('./public');
@@ -10,6 +10,7 @@ mix.js(['resources/js/lib/modernizr.js', 'resources/js/main.js'], 'public/assets
 
 // order matters, before scss to set sass variable
 mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/fonts/@fortawesome/fontawesome-free');
+mix.copy('node_modules/flexslider/fonts', 'public/assets/fonts');
 
 // Autoprefixer on by default
 // Webpack was throwing an error for when using Mix's options.autoprefixer.options
