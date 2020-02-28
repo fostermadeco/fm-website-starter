@@ -29,10 +29,13 @@ git remote rm origin
 ```
 
 ### 2. Update the VM
-Destroy the box. Then init vagrant via [Rokanan](https://github.com/fostermadeco/rokanan):
-
+Destory the leftover vm:
 ```
-vagrant destroy
+make destroy-vm
+```
+
+Then init vagrant via [Rokanan](https://github.com/fostermadeco/rokanan):
+```
 rokanan init
 ```
 You may need to install Rokanan globally with composer:
@@ -47,16 +50,21 @@ Create the file: `ansible/group_vars/all`, copy in the sample file `all.sample` 
 ```
 vagrant up
 ```
+Commit all the created files.
 
-### 5. Install the dependencies:
+### 5. Install the dependencies
 ```
 vagrant ssh
 composer install
 npm install
 ```
-If you are trying to get the FM Website Starter site to work, you'll need to run `npm run w` to create a `mix-manifest.json`.
+If you are trying to get the FM Website Starter site to work, you'll need to run `npm run w` to create a `mix-manifest.json` before you can view the site.
 
-### 5. Install CMS
+### 6. Update webpack.mix.js
+Update the host and IP in `webpack.mix.js`.
+
+
+### 7. Install CMS
 
 If you are just trying to get this repo working,  `public/index.php` is setup to autoload `mix.php` and populate the style and script references.
 
