@@ -90,3 +90,6 @@ ansible/provision.retry
 ###> rokanan ###
 ubuntu-*-console.log
 ###< rokanan ###
+###> rokanan ###
+ubuntu-*-console.log
+###< rokanan ###
