@@ -1,0 +1,23 @@
+public_dir: public
+
+document_root: /var/www/{{ hostname }}/{{ public_dir }}
+
+php_modules:
+    - curl
+    - dom
+    - gd
+    - mbstring
+    - gmp
+    - bcmath
+
+php_config:
+  - option: upload_max_filesize
+    value: 20M
+  - option: post_max_size
+    value: 20M
+
+mysql_databases:
+  - updatedbname
+
+packages:
+  - git

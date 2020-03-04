@@ -7,3 +7,4 @@ destroy-vm:
 	rm Vagrantfile && \
 	git add . && \
 	git commit -m "Remove old VM"
+
