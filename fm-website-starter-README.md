@@ -29,8 +29,9 @@ git remote rm origin
 ```
 
 ### 2. Update the VM
-Destory the leftover vm:
+Destroy the leftover vm:
 ```
+vagrant destroy
 make destroy-vm
 ```
 
