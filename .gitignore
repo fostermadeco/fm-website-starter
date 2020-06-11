@@ -23,6 +23,9 @@ yarn-error.log*
 .env
 .env.*
 
+# keep the example file (remember not to save any keys in it, though!)
+!.env.example
+
 #Build generated
 dist/
 build/
