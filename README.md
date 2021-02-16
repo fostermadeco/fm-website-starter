@@ -1,6 +1,6 @@
 # Foster Made Website Starter
 
-Starter files for new website project using Vagrant and Laravel Mix.
+Starter files for new website project. 
 
 ## What is included:
 
@@ -17,12 +17,14 @@ Starter files for new website project using Vagrant and Laravel Mix.
 - `resources` contains all source files, these should be modified.
 - `public/assets` should be all compiled files, these files are created automatically and should not be edited.
 
+--------------
 ## How to Use
 
 NOTE: If switching from fm-site-build Gulp tasks see [Gulp to Mix Guide](https://github.com/fostermadeco/standards/blob/master/javascript/gulp-to-mix.md).
 
-For a fresh project, use these instructions. Adjust as necessary for an existing project.
+This is not meant to be a cloneable repo for new projects. This repo uses Rokanan, but your new project needs to use standup its own Vagrant environment. The idea is to copy some files from this repo and use Rokanan to setup the Vagrant dev environement. 
 
+For a fresh project, use these instructions. Adjust as necessary for an existing project.
 ### 1. Copy files from this repo into project:
 
 - `webpack.mix.js`
@@ -30,7 +32,6 @@ For a fresh project, use these instructions. Adjust as necessary for an existing
 - `package.json` (If it doesn't already exist. If it does, copy,`scripts`, `dependencies` and `devDependencies` from this `package.json` into the project `package.json`)
 - Copy `resources` directory (starting place for asset organization, contains Modernizr and Modernizr config.)
 - Create empty `public` directory your project.
-- `Makefile`
 - `.eslintrc`
 - `.babelrc`
 
@@ -38,14 +39,19 @@ You can use this [README.md](https://github.com/fostermadeco/standards/blob/mast
 
 ### 2. Vagrant Setup
 
-Setup Vagrant with the [Provisioner](https://github.com/fostermadeco/development-standard#creating-a-new-project).
+Setup Vagrant with [Rokanan](https://github.com/fostermadeco/rokanan). You will need to create an new private IP for the site by adding it to the [Google Spreadsheet](https://docs.google.com/spreadsheets/u/1/d/1muC1u3OhrVKdCSPz-BC3NtK0I2HvWWhJ5gV9MgBEmSk/edit#gid=0). You will use this in the interactive Rokanan setup.
+
+The quick version is:
+```
+composer require --dev fostermadeco/rokanan dev-master --ignore-platform-reqs
+rokanan init
+```
 
 ### 3. Run Initialization
 
 Once all the files are in place, run the initialization commands:
 
 ```
-make create
 vagrant ssh
 npm install
 ```
@@ -65,6 +71,8 @@ The `mix.php` might have to be adjusted depending on where the assets are for a 
 #### CMS Plugins
 
 - [Craft 3 Mix](https://github.com/mister-bk/craft-plugin-mix)
+
+--------------
 
 ## Asset Task Usage
 
@@ -94,6 +102,7 @@ View the site at [http://localhost:3000/](http://localhost:3000/) or the proxy a
 npm run production
 ```
 
+--------------
 ## Assets
 
 Add an asset by installing the npm package:
@@ -115,6 +124,8 @@ import 'flexslider';
 
 See more examples of how to import [packages frequently used on FM projects](https://github.com/fostermadeco/standards/blob/master/javascript/npm-package-examples.md). Read more about [modules in the FM Standards repo](https://github.com/fostermadeco/standards/blob/master/javascript/modules.md).
 
+--------------
+
 ## Sass
 
 Styles are loaded through the js into their own bundle file: `./public/assets/main.css`.
@@ -124,6 +135,8 @@ Imports can be referenced by the path to the package folder in the node_modules 
 ```
 @import '~normalize.css';
 ```
+
+--------------
 
 ## Modernizr
 
@@ -176,6 +189,8 @@ if (!Modernizr.svg) {
 }
 ```
 
+--------------
+
 ## Browser Support
 
 With this setup CSS vendor prefixes are added automatically. Also you can safely use all Javascript ES2015 and ES2017 features. For newer features, consult the [ECMAScript compatibility table](https://kangax.github.io/compat-table/es2016plus/).
@@ -205,10 +220,13 @@ npx browserslist 'last 1 version, > 1%'
 
 More about how to specify which browsers should be included is here [browserslist](https://github.com/browserslist/browserslist).
 
+--------------
+
 ## Eslint and Prettier
 
 Uses FM's [Eslint and Prettier setup](https://github.com/fostermadeco/eslint-config-fostermade). 
 
+--------------
 ## Specific Package notes
 
 ### Font Awesome

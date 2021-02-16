@@ -91,3 +91,7 @@ $RECYCLE.BIN/
 .vagrant
 /vendor/
 ansible/provision.retry
+
+###> rokanan ###
+ubuntu-*-console.log
+###< rokanan ###

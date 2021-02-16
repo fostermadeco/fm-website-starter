@@ -1,0 +1,30 @@
+-
+  hosts: local
+  roles:
+    - system
+    - lamp
+    - node
+  tasks:
+    -
+      name: 'run handlers'
+      meta: flush_handlers
+    -
+      name: 'set git config values'
+      template:
+        src: ../vendor/fostermadeco/rokanan/dependencies/ansible/files/gitconfig.j2
+        dest: /home/vagrant/.gitconfig
+    -
+      name: 'change into project directory on login'
+      lineinfile:
+        path: ~/.bashrc
+        line: 'cd /var/www/{{ hostname }}'
+        state: present
+    -
+      name: 'disable release upgrade notifications'
+      become: 'yes'
+      file:
+        path: /etc/update-motd.d/91-release-upgrade
+        mode: '-x'
+
+    # This is your provision file! Add any custom provisioning
+    # tasks you want below.

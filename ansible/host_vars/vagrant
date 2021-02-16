@@ -1,0 +1,3 @@
+hostname: fm-website-starter.test
+email_hostname: email.fm-website-starter.test
+private_address: 192.168.202.216

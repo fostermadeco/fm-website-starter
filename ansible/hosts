@@ -1,0 +1,7 @@
+all:
+  children:
+    local:
+      hosts:
+        vagrant:
+          ansible_host: fm-website-starter.test
+          ansible_user: vagrant

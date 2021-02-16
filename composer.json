@@ -1,5 +1,8 @@
 {
     "autoload": {
         "files": ["mix.php"]
+    },
+    "require-dev": {
+        "fostermadeco/rokanan": "dev-master"
     }
 }

@@ -1,0 +1,5 @@
+php_version: '7.4'
+public_folder: public
+mysql_databases: fmwebsitestarter
+document_root: '/var/www/{{ hostname }}/{{ public_folder }}'
+php_modules: []

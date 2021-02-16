@@ -1,7 +1,7 @@
 const mix = require('laravel-mix');
 
-const host = 'fm-website-starter.dev';
-const vagrantIP = '192.168.202.153';
+const host = 'fm-website-starter.test';
+const vagrantIP = '192.168.202.216';
 
 mix.setPublicPath('./public');
 
