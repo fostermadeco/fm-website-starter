@@ -22,7 +22,6 @@ mix.copyDirectory('resources/images', 'public/assets/images');
 mix.copyDirectory('resources/fonts', 'public/assets/fonts');
 
 if (process.env.ENVIRONMENT === 'dev') {
-    console.log('DEV');
     mix.browserSync({
         proxy: `https://${host}`,
         // compiled files in public or templates
