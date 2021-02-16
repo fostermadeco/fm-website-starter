@@ -18,10 +18,10 @@
     </head>
 
     <body>
-        <div class="container mx-auto bg-blue-200">
+        <div class="container mx-auto bg-blue-200 p-2">
             <ul class="flex">
                 <li class="">
-                    <a class="mr-2 active" href="#">Active</a>
+                    <a class="mr-2 text-yellow-600" href="#">Active</a>
                 </li>
                 <li class="">
                     <a class="mr-2" href="#">Link</a>
