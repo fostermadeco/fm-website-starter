@@ -18,24 +18,24 @@
     </head>
 
     <body>
-        <div class="container">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
+        <div class="container mx-auto bg-blue-200">
+            <ul class="flex">
+                <li class="">
+                    <a class="mr-2 active" href="#">Active</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                <li class="">
+                    <a class="mr-2" href="#">Link</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                <li class="">
+                    <a class="mr-2" href="#">Link</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                <li class="">
+                    <a class="mr-2 disabled" href="#">Disabled</a>
                 </li>
             </ul>
         </div>
 
-        <div class="container">
+        <div class="container mx-auto w-1/2">
             <h1>Hello world!</h1>
             <h2><i class="fas fa-arrow-circle-right" aria-hidden="true"></i> Welcome</h2>
             <h2><a href="http://google.com">Google</a></h2>

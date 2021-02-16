@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
 
 const host = 'fm-website-starter.test';
 const vagrantIP = '192.168.202.216';
@@ -11,7 +12,14 @@ mix.js(['resources/js/lib/modernizr.js', 'resources/js/main.js'], 'public/assets
 // order matters, before scss to set sass variable
 mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/fonts/@fortawesome/fontawesome-free');
 
-mix.sass('resources/scss/main.scss', 'public/assets');
+// mix.js('resources/js/app.js', 'public/js')
+//     .postCss('resources/css/app.css', 'public/css', [
+//         require('tailwindcss'),
+//     ]);
+
+mix.sass('resources/scss/main.scss', 'public/assets').options({
+    postCss: [tailwindcss('./tailwind.config.js')],
+});
 
 // Makes $ available globally, no need to import it
 mix.autoload({
