@@ -11,18 +11,7 @@ mix.js(['resources/js/lib/modernizr.js', 'resources/js/main.js'], 'public/assets
 // order matters, before scss to set sass variable
 mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/assets/fonts/@fortawesome/fontawesome-free');
 
-// Autoprefixer on by default
-// Webpack was throwing an error for when using Mix's options.autoprefixer.options
-// There is a browserslist key in package.json or you can overwrite default
-// browsers by adding a .browserlistrc file
-// Previously Mix didn't support .browserlistrc files, but I think it does now
-// https://laravel-mix.com/docs/4.1/css-preprocessors#postcss-plugins
-
-// Url processing was making build extremely slow, so turning it off by default
-// https://laravel.com/docs/5.8/mix#url-processing
-mix.sass('resources/scss/main.scss', 'public/assets').options({
-    processCssUrls: false,
-});
+mix.sass('resources/scss/main.scss', 'public/assets');
 
 // Makes $ available globally, no need to import it
 mix.autoload({
@@ -32,7 +21,8 @@ mix.autoload({
 mix.copyDirectory('resources/images', 'public/assets/images');
 mix.copyDirectory('resources/fonts', 'public/assets/fonts');
 
-if (!mix.config.production) {
+if (process.env.ENVIRONMENT === 'dev') {
+    console.log('DEV');
     mix.browserSync({
         proxy: `https://${host}`,
         // compiled files in public or templates
@@ -51,6 +41,6 @@ if (!mix.config.production) {
     });
 }
 
-if (mix.config.production) {
+if (process.env.ENVIRONMENT !== 'dev') {
     mix.version();
 }

@@ -9,7 +9,6 @@ Starter files for new website project.
 - Includes Modernizr
 - JS bundle file (main.js)
 - Scss files in separate bundle (main.css)
-- Automatically adds CSS vendor prefixes
 - Includes support for Javascript ES2015 and ES2017 features
 
 ## Things to note
@@ -47,7 +46,17 @@ composer require --dev fostermadeco/rokanan dev-master --ignore-platform-reqs
 rokanan init
 ```
 
-### 3. Run Initialization
+### 3. Create .env file
+
+Create `.env` in root of project and add:
+
+```
+ENVIRONMENT=dev
+```
+
+This will allow the `webpack.mix.js` file to read the [process.env variables](https://laravel.com/docs/8.x/mix#environment-variables). 
+
+### 4. Run Initialization
 
 Once all the files are in place, run the initialization commands:
 
@@ -56,7 +65,7 @@ vagrant ssh
 npm install
 ```
 
-### 4. Add Assets to Template
+### 5. Add Assets to Template
 
 This step depends on the CMS on the site. For no CMS:
 
@@ -67,10 +76,12 @@ composer install
 ```
 
 The `mix.php` might have to be adjusted depending on where the assets are for a project.
-
 #### CMS Plugins
 
 - [Craft 3 Mix](https://github.com/mister-bk/craft-plugin-mix)
+
+### Congratulations!
+You should now be able to run `npm run w` and view the automatically refreshing site at [http://fm-website-starter.test:3000](http://fm-website-starter.test:3000) with your project's host.
 
 --------------
 
