@@ -6,7 +6,8 @@
     "license": "MIT",
     "scripts": {
         "development": "mix",
-        "w": "mix watch -- --watch-options-poll=1000",
+        "w": "npm run watch",
+        "watch": "NODE_OPTIONS=\"--max-old-space-size=8000\" npx mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "production": "mix --production",
         "modernizr": "modernizr -c resources/js/lib/modernizr-config.json -d resources/js/lib/ -u"
