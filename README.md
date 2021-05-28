@@ -137,7 +137,7 @@ See more examples of how to import [packages frequently used on FM projects](htt
 
 ## Javascript
 
-The starter repo implements a JS router to organize JS files. The router is initialized in `main.js`. The `js` dir contains a couple other dirs:
+The starter repo implements a JS router to help organize JS. The router is initialized in `main.js`. `resources/js` contains a couple other dirs:
 
 * `lib` - Most packages should be downloaded and used via `npm`, but sometimes there are misc 3rd party scripts that need to be referenced locally. These files should not be altered from their original state. This makes updates a bit easier. 
 * `modules` - contained features that are used in the routes, e.g. an slider or forms.
