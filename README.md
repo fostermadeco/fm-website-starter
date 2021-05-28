@@ -135,6 +135,44 @@ import 'flexslider';
 
 See more examples of how to import [packages frequently used on FM projects](https://github.com/fostermadeco/standards/blob/master/javascript/npm-package-examples.md). Read more about [modules in the FM Standards repo](https://github.com/fostermadeco/standards/blob/master/javascript/modules.md).
 
+## Javascript Organization
+
+The starter repo implements a JS router to organize JS files. The router is initialized in `main.js`. The `js` dir contains a couple other dirs:
+
+* `lib` - Most packages should be downloaded and used via `npm`, but sometimes there are misc 3rd party scripts that need to be referenced locally. These files should not be altered from their original state. This makes updates a bit easier. 
+* `modules` - contained features that are used in the routes, e.g. an slider or forms.
+* `routes` - js that is used on a specific route, e.g. /about
+### File structure
+
+Files should be kept as short as possible. The code should be structured in this way:
+
+```
+import parsleyjs from 'parsleyjs';
+
+const somethingElseRelatedToForms = () => {
+    console.log('Forms!');
+};
+
+const initValidation = () => {
+    $('form').parsley();
+};
+
+const initForms = () => {
+    initValidation();
+    somethingElseRelatedToForms();
+};
+
+export default initForms;
+```
+
+Notes:
+- Imports at the top
+- Keep import close to where it's used (not in `main.js`)
+- Export one `default` function
+- Initialize other functions in the exported function
+- Initialization of modules js should mostly happen in routes
+- `resources/js/modules/forms.js` is imported into `routes/global.js` as `import initForms from '../modules/forms';` check `resources/js/routes/global.js` to see how it's used.
+
 --------------
 
 ## Sass
