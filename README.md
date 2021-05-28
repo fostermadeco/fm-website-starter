@@ -135,7 +135,7 @@ import 'flexslider';
 
 See more examples of how to import [packages frequently used on FM projects](https://github.com/fostermadeco/standards/blob/master/javascript/npm-package-examples.md). Read more about [modules in the FM Standards repo](https://github.com/fostermadeco/standards/blob/master/javascript/modules.md).
 
-## Javascript Organization
+## Javascript
 
 The starter repo implements a JS router to organize JS files. The router is initialized in `main.js`. The `js` dir contains a couple other dirs:
 
@@ -146,7 +146,7 @@ The starter repo implements a JS router to organize JS files. The router is init
 
 Files should be kept as short as possible. The code should be structured in this way:
 
-```
+```js
 import parsleyjs from 'parsleyjs';
 
 const somethingElseRelatedToForms = () => {
