@@ -1,3 +1,12 @@
+import 'flexslider';
+import initForms from '../modules/forms';
+
+const initSliders = () => {
+    $('.flexslider').flexslider({
+        animation: 'slide',
+    });
+};
+
 // OPEN .PDF'S AND EXTERNAL LINKS IN A NEW WINDOW
 const openExternalInNewWindow = () => {
     $('a[href^="http:"], a[href^="https:"]')
@@ -6,6 +15,10 @@ const openExternalInNewWindow = () => {
     $('a[href$=".pdf"]').attr('target', '_blank');
 };
 
-export default () => {
+const initGlobal = () => {
     openExternalInNewWindow();
+    initSliders();
+    initForms();
 };
+
+export default initGlobal;

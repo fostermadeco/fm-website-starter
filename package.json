@@ -21,6 +21,7 @@
         "laravel-mix": "^6.0.19",
         "modernizr": "^3.11.4",
         "normalize.css": "^8.0.1",
+        "one-router": "0.0.5",
         "parsleyjs": "^2.9.1",
         "sass": "^1.22.9"
     },

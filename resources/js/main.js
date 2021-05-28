@@ -1,11 +1,12 @@
-import initUI from './ui/ui';
-import './ui/forms';
-import 'flexslider';
+import OneRouter from 'one-router';
+import initAbout from './routes/about';
+import initGlobal from './routes/global';
 
 window.$ = $;
 
-initUI();
-
-$('.flexslider').flexslider({
-    animation: 'slide',
+const router = new OneRouter({
+    '/$': initGlobal,
+    '/about': initAbout,
+    // '/approach': function() {},
+    // '/work/(.*)': function() {}
 });
